@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<project name="Build commons projects" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless" default="build.all">
+
+	<property file="${basedir}/build.properties" />
+
+	<property name="maven.profile" location="javafx11,mysql" />
+
+	<property name="jsoagger-commons.location" value="${basedir}/jsoagger-commons/" />
+	<property name="jsoagger-core-api.location" value="${jsoagger-commons.location}/jsoagger-core-api" />
+	<property name="jsoagger-core-bridge.location" value="${jsoagger-commons.location}/jsoagger-core-bridge" />
+	<property name="jsoagger-core-i18n.location" value="${jsoagger-commons.location}/jsoagger-core-i18n" />
+	<property name="jsoagger-core-ioc.location" value="${jsoagger-commons.location}/jsoagger-core-ioc" />
+	<property name="jsoagger-core-utils.location" value="${jsoagger-commons.location}/jsoagger-core-utils" />
+	<property name=".location" value="${jsoagger-commons.location}/jsoagger-core-viewdefinition" />
+
+	<property name="win.maven.clean.install" value="-c 'mvn -o ${maven.bin.fullPath} clean install -Dmaven.test.skip=true'" />
+	<property name="linux.maven.clean.install" value="-c '${maven.bin.fullPath} clean install -Dmaven.test.skip=true'" />
+
+	<target name="maven.clean.install">
+		<echo>Maven clean install on project ${param1}</echo>
+		<exec dir="${param1}" executable="/bin/bash">
+			<arg line="-c '${MVN_HOME} clean install -P ${maven.profile} -Dmaven.test.skip=true'" />
+		</exec>
+	</target>
+
+	<target name="build.all">
+		<echo>Maven clean install on project : ${jsoagger-commons.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-commons.location}" />
+		</antcall>
+	</target>
+
+	<target name="build.core.api">
+		<echo>Maven clean install on project : ${jsoagger-core-api.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-core-api.location}" />
+		</antcall>
+	</target>
+
+	<target name="build.core.bridge">
+		<echo>Maven clean install on project : ${jsoagger-core-bridge.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-core-bridge.location}" />
+		</antcall>
+	</target>
+
+	<target name="build.core.i18n">
+		<echo>Maven clean install on project : ${jsoagger-core-i18n.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-core-i18n.location}" />
+		</antcall>
+	</target>
+
+	<target name="build.core.ioc">
+		<echo>Maven clean install on project : ${jsoagger-core-ioc.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-core-ioc.location}" />
+		</antcall>
+	</target>
+
+	<target name="build.core.utils">
+		<echo>Maven clean install on project : ${jsoagger-core-utils.location}</echo>
+		<antcall target="maven.clean.install">
+			<param name="param1" value="${jsoagger-core-utils.location}" />
+		</antcall>
+	</target>
+</project>

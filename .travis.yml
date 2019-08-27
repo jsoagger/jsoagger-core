@@ -1,0 +1,72 @@
+language: java
+
+# -------------  ALL BRANCHES FIRE MVN INSTALL  ------------- ------------- --------
+# DEVELOP: BUILD ON COMMIT (NO DEPLOY)
+# MASTER: BUILD ON COMMIT (NO DEPLOY)
+# +++++++++++++  STABLE AND TAGS FIRE DEPLOY    ++++++++++++++++++++++++++++++++++++
+# STABLE: BUILD ON COMMIT + DEPLOY SNAPSHOT RELEASE
+# TAGS: BUILD ON COMMIT + DEPLOY SONATYPE VERSION  RELEASE + GITHUB RELEASE
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Be aware when adding 'branch.only' they can exclude tags deployment is not fired
+# -------------------------- ------------- ------------- ------------- ------------- 
+
+
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      jdk: openjdk11
+            
+cache:
+    directories:
+    - $HOME/.m2/repository
+
+script:
+  - echo PATH = ${PATH}
+  - echo $JAVA_HOME
+  - java -version
+
+
+before_install:
+    - export GPG_TTY=/dev/pts/4
+    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
+    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+install: 
+    mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+      
+      
+before_deploy:
+    - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+    - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+
+
+deploy: 
+# 1. Trigger a snapshot deploy when commit a stable version
+    - provider: script
+      script: bash .travis/snapshot.sh 
+      skip_cleanup: true
+      on:
+        branch: stable
+        repo: Nexitia/jsoagger-core
+
+# 1. Trigger a version deploy when a commit on tag
+# 2. And create a github release 
+    - provider: script
+      script: bash .travis/release.sh 
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
+        repo: Nexitia/jsoagger-core
+        
+    - provider: releases
+      api_key:
+        secure: VUL3yBhcMx8q3r7yhSJE1rtzONlRU0GmMUNTN6AzTgxHnu+k+2vOfqQVtm667Vlds5OHNVWkhQHEGZsLH7X49CvqpY7GlbNnHhhbp2s7i3uxfI2R+aXI1/86980Ms6FA6GGuGC8XfGWyBh94kBf4LmiuLfsW/dS0qSeHa5efamtEFQ/cvj0KvUm9xMRkU5LGW9hq83vrhjBzfLXMuDwqgRLcHzJUtLUDI02rH6yVdxTwgsnNWB+iZx/SIiiWct1nTZbsM9b7ST+NDq2chLKcN4JaWsg26IhIgJHqiglP80qToeh7oAdVcZdEBWEvMvlSzBXuEbP5rIy0bN9xhylo0Y004scmbVUBmPblyrtSMlJ43Rz90dXa4V2wAr8PaOstdDPHt+ckKIhpX2D0C7w8Fv/BMRMdZpXieQiFdHyEMlzEszp1D/oGL+OH4iU/I/V4VgBFBrJsPkb83dw7nXt8b0nH4DJzNkkcbt+dpu1D8QcebKrnbi8DWTShEaJWqNomAoJNrqIQeEKvTP9a1Sx/lVbUqJ3HdEajNQI0kY7d0UX6IkQmwqPdppZZwKXurdz0ZppsrbsW8gmsommhsSRgAPnpL1Qi2TFjSE+hARwGK7XdHViK3WEQ/lYp9r76ngvyttPhjXMc/HlkIVItm3+IU1BKm9iM+LZbuivJ8YeGSYo=
+      skip_cleanup: true
+      on:
+          tags: true
+          all_branches: true
+          condition: $TRAVIS_OS_NAME = linux
+          repo: Nexitia/jsoagger-core
+ 

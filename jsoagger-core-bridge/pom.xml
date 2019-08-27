@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.github.jsoagger</groupId>
+		<artifactId>jsoagger-core</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<name>JSoagger core bridge</name>
+	<description>JSoagger core bridge</description>
+	<artifactId>jsoagger-core-bridge</artifactId>
+
+	<properties>
+		<root.project.location>${project.basedir}/../</root.project.location>
+
+		<java.source.level>11</java.source.level>
+		<java.target.level>1.9</java.target.level>
+		<jdk>${env.JAVA_HOME}</jdk>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${root.project.location}/external-libs/gson-2.8.6-SNAPSHOT.jar</systemPath>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<classpathContainers>
+						<classpathContainer>
+							org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11
+						</classpathContainer>
+					</classpathContainers>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>
