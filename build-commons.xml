@@ -7,7 +7,7 @@
 	<property name="maven.profile" location="javafx11,mysql" />
 
 	<property name="jsoagger-commons.location" value="${basedir}/jsoagger-commons/" />
-	<property name="jsoagger-core-api.location" value="${jsoagger-commons.location}/jsoagger-core-api" />
+	<property name="jsoagger-jfxcore-api.location" value="${jsoagger-commons.location}/jsoagger-jfxcore-api" />
 	<property name="jsoagger-core-bridge.location" value="${jsoagger-commons.location}/jsoagger-core-bridge" />
 	<property name="jsoagger-core-i18n.location" value="${jsoagger-commons.location}/jsoagger-core-i18n" />
 	<property name="jsoagger-core-ioc.location" value="${jsoagger-commons.location}/jsoagger-core-ioc" />
@@ -32,9 +32,9 @@
 	</target>
 
 	<target name="build.core.api">
-		<echo>Maven clean install on project : ${jsoagger-core-api.location}</echo>
+		<echo>Maven clean install on project : ${jsoagger-jfxcore-api.location}</echo>
 		<antcall target="maven.clean.install">
-			<param name="param1" value="${jsoagger-core-api.location}" />
+			<param name="param1" value="${jsoagger-jfxcore-api.location}" />
 		</antcall>
 	</target>
 

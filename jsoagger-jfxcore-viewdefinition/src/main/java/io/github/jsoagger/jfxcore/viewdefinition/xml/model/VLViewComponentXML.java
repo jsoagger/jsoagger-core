@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import io.github.jsoagger.jfxcore.viewdefinition.xml.StringUtils;
-import io.github.jsoagger.jfxcore.viewdefinition.xml.XMLConstants;
+import io.github.jsoagger.jfxcore.viewdefinition.json.xml.XMLConstants;
 
 /**
  * @author Ramilafananana  VONJISOA
