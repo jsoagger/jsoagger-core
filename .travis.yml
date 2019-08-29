@@ -30,8 +30,8 @@ script:
 
 before_install:
     - export GPG_TTY=/dev/pts/4
-    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
-    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --batch --import
+    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --batch --import-ownertrust
 
 install: 
     mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
