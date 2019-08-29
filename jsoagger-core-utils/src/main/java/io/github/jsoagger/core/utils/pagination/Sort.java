@@ -18,9 +18,7 @@
  * =========================LICENSE_END==================================
  */
 
-
 package io.github.jsoagger.core.utils.pagination;
-
 
 
 import java.util.ArrayList;
@@ -59,12 +57,12 @@ public class Sort {
 
 
   /**
-   * Generates a {@link List} of {@link Sort} from a string. The input must be separated by coma.
-   * <p>
+   * Generates a List of Sort from a string. The input must be separated by coma.
    * Examples of valid sort query param:
-   * <li><b>+</b>versionInfo.versionNumber: sorting ASC</li>
-   * <li><b>-</b>versionInfo.versionNumber: sorting DESC</li>
-   * <li><b>+</b>versionInfo.versionNumber, <b>-</b>persistenceInfo.lastModificationDate: sorting
+   * 
+   * === + === versionInfo.versionNumber: sorting ASC
+   * === - === versionInfo.versionNumber: sorting DESC
+   * === + === versionInfo.versionNumber, === - === persistenceInfo.lastModificationDate: sorting
    * multiple
    *
    * @param sortString
@@ -89,17 +87,16 @@ public class Sort {
 
 
   /**
-   * Called by REST API to convert sort string from QueryParam to {@link Sort} object injected
+   * Called by REST API to convert sort string from QueryParam Sort object injected
    * in the a method parameter. If the sort string from QueryParam is <code>null</code> or has
    * text but is not valid, underlying API will be called with default sort (modification date DESC).
    *
-   * <p>
    * Examples of valid sort query param:
-   * <li>sort=<b>+</b>versionInfo.versionNumber: sorting ASC</li>
-   * <li>sort=<b>+</b>versionInfo.versionNumber, <b>-</b>persistenceInfo.lastModificationDate: Sorting
-   * ASC and DESC</li>
-   * <li>sort=versionInfo.versionNumber: not valid</li>
-   * <li>sort=: evaluates to null</li>
+   * sort=+versionInfo.versionNumber ===  sorting ASC
+   * sort=+versionInfo.versionNumber, === persistenceInfo.lastModificationDate: Sorting
+   * ASC and DESC
+   * sort=versionInfo.versionNumber: not valid
+   * sort=: evaluates to null
    *
    * @param sortString Sort string
    * @return Sort[]

@@ -111,16 +111,6 @@ public class PageRequest implements Serializable {
   }
 
 
-  //	public EntityPathBase externalSelect() {
-  //		return select.get(0);
-  //	}
-
-
-  //  public void addPathSelect(EntityPathBase path) {
-  //    select.add(path);
-  //  }
-
-
   /**
    * Constructor
    */

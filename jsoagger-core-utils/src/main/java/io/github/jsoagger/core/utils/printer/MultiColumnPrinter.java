@@ -161,38 +161,30 @@ public abstract class MultiColumnPrinter {
 	 * wide, it is possible to have some title strings in a row to 'span'
 	 * multiple collumns:
 	 *
-	 * <P>
-	 *
-	 * <PRE>
 	 * ------------------------------------
 	 *     Name             Contact
 	 * First  Last      Email       Phone
 	 * ------------------------------------
 	 * Bob    Jones  bob@foo.com   123-4567
 	 * John   Doe    john@foo.com  456-7890
-	 * </PRE>
 	 *
 	 * In the example above, the title row has a string 'Name' that spans 2
 	 * collumns. The string 'Contact' also spans 2 collumns. The above is done
 	 * by passing in to addTitle() an array that contains:
 	 *
-	 * <PRE>
 	 * span[0] = 2; // spans 2 collumns
 	 * span[1] = 0; // spans 0 collumns, ignore
 	 * span[2] = 2; // spans 2 collumns
 	 * span[3] = 0; // spans 0 collumns, ignore
-	 * </PRE>
-	 * <P>
+
 	 * A span value of 1 is the default. The method addTitle(String[] row)
 	 * basically does:
 	 *
-	 * <PRE>
 	 * int[] span = new int[row.length];
 	 * for (int i = 0; i < row.length; i++) {
 	 * 	span[i] = 1;
 	 * }
 	 * addTitle(row, span);
-	 * </PRE>
 	 *
 	 * @param row
 	 *            Array of strings to print in one row of title.
