@@ -616,8 +616,8 @@
 					<version>1.16</version>
 					<configuration>
 						<verbose>false</verbose>
-						<inceptionYear>2018</inceptionYear>
-						<organizationName>NEXITIA</organizationName>
+						<inceptionYear>2019</inceptionYear>
+						<organizationName>JSOAGGER</organizationName>
 						<licenseName>apache_v2</licenseName>
 						<projectName>JSoagger </projectName>
 						<emptyLineAfterHeader>true</emptyLineAfterHeader>
@@ -687,15 +687,15 @@
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
-			<distribution>repo</distribution>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+			<distribution>repo</distribution>
 		</license>
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/Nexitia/jsoagger-core.git</connection>
-		<developerConnection>scm:git:https://github.com/Nexitia/jsoagger-core.git</developerConnection>
-		<url>https://github.com/Nexitia/jsoagger-core.git</url>
+		<connection>scm:git:https://github.com/jsoagger/jsoagger-core.git</connection>
+		<developerConnection>scm:git:https://github.com/jsoagger/jsoagger-core.git</developerConnection>
+		<url>https://github.com/jsoagger/</url>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -739,13 +739,14 @@
 	<distributionManagement>
 		<site>
 			<id>api.wiki</id>
-			<url>https://github.com/jsoagger/wiki</url>
+			<url>https://github.com/jsoagger</url>
 		</site>
 
 		<snapshotRepository>
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		
 		<repository>
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
