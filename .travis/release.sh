@@ -3,7 +3,7 @@
 set -e
 
 echo "Deploying release version to SONATYPE"
-mvn -X clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
+mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
 
 # log is truncated when build fails
 # try this work arround
