@@ -22,23 +22,20 @@
 package io.github.jsoagger.core.utils.printer;
 
 
-
-
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 
+/**
+ * 
+ * @author vonji
+ */
 public abstract class MultiColumnPrinter {
 
 	final public static int	LEFT	= 0;
 	final public static int	CENTER	= 1;
-
-	/*
-	 * Sets the default sorting behavior. When set to true, the table entries
-	 * are sorted unless otherwise specified in a constructor.
-	 */
 	final private static boolean DEFAULT_SORT = true;
 
 	private int		numCol		= 2;
@@ -55,26 +52,7 @@ public abstract class MultiColumnPrinter {
 	private boolean	sortNeeded	= DEFAULT_SORT;
 	private int[]	keyCriteria	= null;
 
-
-	/**
-	 * Creates a new MultiColumnPrinter class.
-	 *
-	 * @param numCol
-	 *            number of columns
-	 * @param gap
-	 *            gap between each column
-	 * @param border
-	 *            character used to frame the titles
-	 * @param align
-	 *            type of alignment within columns
-	 * @param sort
-	 *            true if the output is sorted; false otherwise
-	 *
-	 *            REVISIT: Possibly adding another argument that specifies which
-	 *            ones can be truncated (xxx...)
-	 */
 	public MultiColumnPrinter(int numCol, int gap, String border, int align, boolean sort) {
-
 		table = new Vector();
 		titleTable = new Vector();
 		titleSpanTable = new Vector();
@@ -89,58 +67,19 @@ public abstract class MultiColumnPrinter {
 	}
 
 
-	/**
-	 * Creates a new sorted MultiColumnPrinter class.
-	 *
-	 * @param numCol
-	 *            number of columns
-	 * @param gap
-	 *            gap between each column
-	 * @param border
-	 *            character used to frame the titles
-	 * @param align
-	 *            type of alignment within columns
-	 */
 	public MultiColumnPrinter(int numCol, int gap, String border, int align) {
 		this(numCol, gap, border, align, DEFAULT_SORT);
 	}
 
 
-	/**
-	 * Creates a sorted new MultiColumnPrinter class using LEFT alignment.
-	 *
-	 * @param numCol
-	 *            number of columns
-	 * @param gap
-	 *            gap between each column
-	 * @param border
-	 *            character used to frame the titles
-	 */
 	public MultiColumnPrinter(int numCol, int gap, String border) {
 		this(numCol, gap, border, LEFT);
 	}
 
-
-	/**
-	 * Creates a sorted new MultiColumnPrinter class using LEFT alignment and
-	 * with no title border.
-	 *
-	 * @param numCol
-	 *            number of columns
-	 * @param gap
-	 *            gap between each column
-	 */
 	public MultiColumnPrinter(int numCol, int gap) {
 		this(numCol, gap, null, LEFT);
 	}
 
-
-	/**
-	 * Adds to the row of strings to be used as the title for the table.
-	 *
-	 * @param row
-	 *            Array of strings to print in one row of title.
-	 */
 	public void addTitle(String[] row) {
 		if (row == null) return;
 
@@ -152,46 +91,6 @@ public abstract class MultiColumnPrinter {
 		addTitle(row, span);
 	}
 
-
-	/**
-	 * Adds to the row of strings to be used as the title for the table. Also
-	 * allows for certain title strings to span multiple collumns The span
-	 * parameter is an array of integers which indicate how many collumns the
-	 * corresponding title string will occupy. For a row that is 4 collumns
-	 * wide, it is possible to have some title strings in a row to 'span'
-	 * multiple collumns:
-	 *
-	 * ------------------------------------
-	 *     Name             Contact
-	 * First  Last      Email       Phone
-	 * ------------------------------------
-	 * Bob    Jones  bob@foo.com   123-4567
-	 * John   Doe    john@foo.com  456-7890
-	 *
-	 * In the example above, the title row has a string 'Name' that spans 2
-	 * collumns. The string 'Contact' also spans 2 collumns. The above is done
-	 * by passing in to addTitle() an array that contains:
-	 *
-	 * span[0] = 2; // spans 2 collumns
-	 * span[1] = 0; // spans 0 collumns, ignore
-	 * span[2] = 2; // spans 2 collumns
-	 * span[3] = 0; // spans 0 collumns, ignore
-
-	 * A span value of 1 is the default. The method addTitle(String[] row)
-	 * basically does:
-	 *
-	 * int[] span = new int[row.length];
-	 * for (int i = 0; i < row.length; i++) {
-	 * 	span[i] = 1;
-	 * }
-	 * addTitle(row, span);
-	 *
-	 * @param row
-	 *            Array of strings to print in one row of title.
-	 * @param span
-	 *            Array of integers that reflect the number of collumns the
-	 *            corresponding title string will occupy.
-	 */
 	public void addTitle(String[] row, int span[]) {
 		// Need to create a new instance of it, otherwise the new values will
 		// always overwrite the old values.
@@ -205,23 +104,10 @@ public abstract class MultiColumnPrinter {
 		titleSpanTable.addElement(span);
 	}
 
-
-	/**
-	 * Set alignment for title strings
-	 *
-	 * @param titleAlign
-	 */
 	public void setTitleAlign(int titleAlign) {
 		this.titleAlign = titleAlign;
 	}
 
-
-	/**
-	 * Adds one row of text to output.
-	 *
-	 * @param row
-	 *            Array of strings to print in one row.
-	 */
 	public void add(String[] row) {
 		// Need to create a new instance of it, otherwise the new values will
 		// always overwrite the old values.
@@ -232,19 +118,11 @@ public abstract class MultiColumnPrinter {
 		table.addElement(rowInstance);
 	}
 
-
-	/**
-	 * Clears title strings.
-	 */
 	public void clearTitle() {
 		titleTable.clear();
 		titleSpanTable.clear();
 	}
 
-
-	/**
-	 * Clears strings.
-	 */
 	public void clear() {
 		table.clear();
 
@@ -255,21 +133,10 @@ public abstract class MultiColumnPrinter {
 		}
 	}
 
-
-	/**
-	 * Prints the multi-column table, including the title.
-	 */
 	public void print() {
 		print(true);
 	}
 
-
-	/**
-	 * Prints the multi-column table.
-	 *
-	 * @param printTitle
-	 *            Specifies if the title rows should be printed.
-	 */
 	public void print(boolean printTitle) {
 
 		// REVISIT:
@@ -393,10 +260,6 @@ public abstract class MultiColumnPrinter {
 		else printUnsortedTable();
 	}
 
-
-	/*
-	 * Prints the table entries in the sorted order.
-	 */
 	private void printSortedTable() {
 		// Sort the table entries
 		TreeMap sortedTable = new TreeMap();
@@ -427,21 +290,6 @@ public abstract class MultiColumnPrinter {
 	}
 
 
-	/*
-	 * Creates the key for the current row based on the criteria specified by
-	 * setKeyCriteria(). If key cannot be created by the criteria, it simply
-	 * returns null.
-	 *
-	 * Examples: String[] row = {"foo", "bar", "hello");
-	 *
-	 * int[] keyCriteria = {0}; key = "foo";
-	 *
-	 * int[] keyCriteria = {0, 1}; key = "foobar";
-	 *
-	 * int[] keyCriteria = {2, 1}; key = "hellobar";
-	 *
-	 * int[] keyCriteria = {4}; key = null;
-	 */
 	private String getKey(String[] row) {
 		String key = "";
 
@@ -460,9 +308,6 @@ public abstract class MultiColumnPrinter {
 	}
 
 
-	/*
-	 * Prints the table entries in the order they were entered.
-	 */
 	private void printUnsortedTable() {
 		Enumeration elm = table.elements();
 		while (elm.hasMoreElements()) {
@@ -470,7 +315,6 @@ public abstract class MultiColumnPrinter {
 			printRow(row);
 		}
 	}
-
 
 	private void printRow(String[] row) {
 		for (int i = 0; i < numCol; i++) {
@@ -493,21 +337,16 @@ public abstract class MultiColumnPrinter {
 	}
 
 
-	/**
-	 * Prints the multi-column table, with a carriage return.
-	 */
 	public void println() {
 		print();
 		doPrintln("");
 	}
-
 
 	private void printSpaces(int count) {
 		for (int i = 0; i < count; ++i) {
 			doPrint(" ");
 		}
 	}
-
 
 	private void printBorder() {
 		int colNum = 1;
@@ -529,35 +368,11 @@ public abstract class MultiColumnPrinter {
 		doPrintln("");
 	}
 
-
-	/**
-	 * Sets the criteria for the key. new int[] {0, 1} means use the first and
-	 * the second elements of the array.
-	 * @param criteria
-	 */
 	public void setKeyCriteria(int[] criteria) {
 		this.keyCriteria = criteria;
 	}
 
-
-	/**
-	 * Method that does the actual printing. Override this method to print to
-	 * your destination of choice (stdout, stream, etc).
-	 *
-	 * @param str
-	 *            String to print.
-	 */
 	public abstract void doPrint(String str);
 
-
-	/**
-	 * Method that does the actual printing. Override this method to print to
-	 * your destination of choice (stdout, stream, etc).
-	 *
-	 * This method also prints a newline at the end of the string.
-	 *
-	 * @param str
-	 *            String to print.
-	 */
 	public abstract void doPrintln(String str);
 }
