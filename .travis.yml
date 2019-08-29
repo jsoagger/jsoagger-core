@@ -16,7 +16,7 @@ matrix:
   include:
     - os: linux
       dist: xenial
-      jdk: oraclejdk11
+      jdk: openjdk-ea
             
 cache:
     directories:
