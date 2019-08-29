@@ -549,6 +549,7 @@
 						</execution>
 					</executions>
 					<configuration>
+						<source>1.8</source>
 						<sourceFileExcludes>
 							<sourceFileExclude>module-info.java</sourceFileExclude>
 						</sourceFileExcludes>
