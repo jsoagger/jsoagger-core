@@ -36,6 +36,11 @@ public class ObjectIdentifierUtils {
     // utility not public constructor
   }
 
+  /**
+   * 
+   * @param base64Id
+   * @return
+   */
   public static Long getBase64Id(String base64Id) {
     String id = decode(base64Id);
     return getId(id);
@@ -69,8 +74,6 @@ public class ObjectIdentifierUtils {
    *
    * @param identifier
    * @return
-   * @throws VLException
-   * @throws VLInvalidObjectIdentiferException
    */
   public static Long getId(String identifier) {
     try {

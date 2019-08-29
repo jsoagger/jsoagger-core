@@ -128,8 +128,12 @@ public class FileUtils {
     }
   }
 
-
-  // here is the code for the method
+  /**
+   * 
+   * @param dir2zip
+   * @param zos
+   * @throws Exception
+   */
   public static void zipDir(String dir2zip, ZipOutputStream zos) throws Exception {
     try {
       // create a new File object based on the directory we
@@ -177,10 +181,10 @@ public class FileUtils {
 
 
   /**
-   * Search a file in classpath, if not found in the local file system
-   *
+   * Search a file in classpath, if not found in the local file system 
+   * @param clazz
    * @param path
-   * @return InputStream or null
+   * @return
    */
   public static InputStream getStreamOf(Class<?> clazz, String path) {
     InputStream inputStream = clazz.getResourceAsStream(path);

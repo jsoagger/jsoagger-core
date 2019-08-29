@@ -98,7 +98,7 @@ public class PageRequest implements Serializable {
    *
    * @param page
    *            page number
-   * @param size
+   * @param pageSize
    *            The page size
    */
   public PageRequest(int page, int pageSize) {
@@ -130,6 +130,9 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
+   * @param page
+   * @param size
+   * @param sort
    */
   public PageRequest(int page, int size, List<Sort> sort) {
     this(page, size);
@@ -141,6 +144,9 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
+   * @param page
+   * @param size
+   * @param sort
    */
   public PageRequest(int page, int size, Sort sort) {
     this(page, size);
@@ -152,9 +158,8 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   *
    * @param page
-   * @param currentpageSizeToLoad
+   * @param pageSize
    * @param direction
    * @param properties
    */
@@ -177,15 +182,13 @@ public class PageRequest implements Serializable {
    * @return the size
    */
   public int getCurrentpageSizeToLoad() {
-
     return size;
   }
 
 
   /**
    * Setter of the size
-   *
-   * @param size
+   * @param currentpageSizeToLoad
    *            the size to set
    */
   public void setCurrentpageSizeToLoad(int currentpageSizeToLoad) {
@@ -256,15 +259,19 @@ public class PageRequest implements Serializable {
 
   /**
    * Setter of the sort
-   *
-   * @param sort
-   *            the sort to set
    */
   public void setSort(List<Sort> sort) {
     this.sort = sort;
   }
 
 
+  /**
+   * @param page
+   * @param pagesize
+   * @param sorts
+   * @param defaultSort
+   * @return
+   */
   public static PageRequest buildFrom(int page, int pagesize, List<Sort> sorts, String defaultSort) {
     PageRequest pageRequest = null;
     if (sorts == null || sorts.size() == 0) {

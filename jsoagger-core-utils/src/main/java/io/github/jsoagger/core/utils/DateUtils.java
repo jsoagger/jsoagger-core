@@ -91,7 +91,6 @@ public class DateUtils {
 	 * dd/MM/yyyy HH:mm:ss Z
 	 * 
 	 * @param date
-	 * @param format
 	 * @return String
 	 */
 	public static String UTCDateString(Date date) {
@@ -108,7 +107,6 @@ public class DateUtils {
 	 * JVM or User PC. Using format : dd/MM/yyyy HH:mm:ss Z
 	 * 
 	 * @param date
-	 * @param format
 	 * @return String
 	 */
 	public static String dateString(Date date) {
@@ -124,7 +122,6 @@ public class DateUtils {
 	/**
 	 * Get current date in default timezone UTC
 	 * 
-	 * 
 	 * @return the current time in UTC zone
 	 */
 	public static Date getCurrentDate() {
@@ -135,7 +132,6 @@ public class DateUtils {
 
 	/**
 	 * Get the current date string UTC zone
-	 * 
 	 * 
 	 * @return The string representation of the date
 	 */
@@ -177,7 +173,7 @@ public class DateUtils {
 	 * 
 	 * @param date
 	 *            The date
-	 * 
+	 * @param shortFormat
 	 * @return The date String in UTC time zone
 	 */
 	public static String getHMIFormatDateString(Date date, boolean shortFormat) {

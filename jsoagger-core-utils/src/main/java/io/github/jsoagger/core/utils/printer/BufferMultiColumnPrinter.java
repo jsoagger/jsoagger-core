@@ -33,7 +33,6 @@ public class BufferMultiColumnPrinter extends MultiColumnPrinter {
 
   /**
    * @param numCol
-   * @param gap
    */
   public BufferMultiColumnPrinter(int numCol) {
     super(numCol, 10, "-");

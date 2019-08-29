@@ -68,7 +68,6 @@ public class StringUtils {
    * @see #hasText(String)
    */
   public static boolean hasLength(String str) {
-
     return ((str != null) && (str.length() > 0));
   }
 
@@ -1072,7 +1071,7 @@ public class StringUtils {
   }
 
   /**
-   * @param linkConstraintName
+   * @param token
    * @return
    */
   public static boolean isBlank(String token) {
@@ -1080,7 +1079,7 @@ public class StringUtils {
   }
 
   /**
-   * @param actionName
+   * @param token
    * @return
    */
   public static boolean isNotBlank(String token) {

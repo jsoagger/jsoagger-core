@@ -538,9 +538,10 @@ public abstract class MultiColumnPrinter {
 	}
 
 
-	/*
+	/**
 	 * Sets the criteria for the key. new int[] {0, 1} means use the first and
 	 * the second elements of the array.
+	 * @param criteria
 	 */
 	public void setKeyCriteria(int[] criteria) {
 		this.keyCriteria = criteria;

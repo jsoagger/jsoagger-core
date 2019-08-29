@@ -29,6 +29,11 @@ import java.util.List;
 
 import io.github.jsoagger.core.utils.StringUtils;
 
+/**
+ * 
+ * @author vonji
+ *
+ */
 public class Sort {
 
   private final static String ASC_STRING = "+";
@@ -133,25 +138,21 @@ public class Sort {
 
 
   public Direction getDirection() {
-
     return direction;
   }
 
 
   public void setDirection(Direction direction) {
-
     this.direction = direction;
   }
 
 
   public List<String> getProperties() {
-
     return properties;
   }
 
 
   public void setProperties(List<String> properties) {
-
     this.properties = properties;
   }
 

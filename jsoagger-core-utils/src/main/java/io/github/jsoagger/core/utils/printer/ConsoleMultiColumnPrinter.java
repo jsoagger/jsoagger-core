@@ -28,7 +28,6 @@ public class ConsoleMultiColumnPrinter extends MultiColumnPrinter {
 
 	/**
 	 * @param numCol
-	 * @param gap
 	 */
 	public ConsoleMultiColumnPrinter(int numCol) {
 		super(numCol, 10, "-");
