@@ -411,7 +411,6 @@ public class StringUtils {
    * @return the uncapitalized String, <code>null</code> if null
    */
   public static String uncapitalize(String str) {
-
     return StringUtils.changeFirstCharacterCase(str, false);
   }
 
