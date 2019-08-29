@@ -14,9 +14,10 @@ language: java
 
 matrix:
   include:
-    - os: linux
-      dist: xenial
-      jdk: openjdk-ea
+    - os: osx
+#      dist: xcode10.1
+      osx_image: xcode10.1
+#      jdk: openjdk11
             
 cache:
     directories:
