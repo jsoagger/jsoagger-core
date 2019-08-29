@@ -89,8 +89,8 @@ public class Sort {
 
 
   /**
-   * Called by REST API to convert sort string from {@link QueryParam} to {@link Sort} object injected
-   * in the a method parameter. If the sort string from {@link QueryParam} is <code>null</code> or has
+   * Called by REST API to convert sort string from QueryParam to {@link Sort} object injected
+   * in the a method parameter. If the sort string from QueryParam is <code>null</code> or has
    * text but is not valid, underlying API will be called with default sort (modification date DESC).
    *
    * <p>
