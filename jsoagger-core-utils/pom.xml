@@ -15,6 +15,7 @@
 
 	<properties>
 		<root.project.location>${project.basedir}/../</root.project.location>
+		<maven.javadoc.skip>true</maven.javadoc.skip>
 	</properties>
 
 	<dependencies>
