@@ -36,9 +36,9 @@ public class Assert {
    * the test result is
    * {@code false}.
    *
-   * <pre class="code">
+   * 
    * Assert.isTrue(i &gt; 0, &quot;The value must be greater than zero&quot;);
-   * </pre>
+   * 
    *
    * @param expression
    *            a boolean expression
@@ -59,9 +59,9 @@ public class Assert {
    * the test result is
    * {@code false}.
    *
-   * <pre class="code">
+   * 
    * Assert.isTrue(i &gt; 0);
-   * </pre>
+   * 
    *
    * @param expression
    *            a boolean expression
@@ -76,9 +76,9 @@ public class Assert {
   /**
    * Assert that an object is {@code null} .
    *
-   * <pre class="code">
+   * 
    * Assert.isNull(value, &quot;The value must be null&quot;);
-   * </pre>
+   * 
    *
    * @param object
    *            the object to check
@@ -97,9 +97,9 @@ public class Assert {
   /**
    * Assert that an object is {@code null} .
    *
-   * <pre class="code">
+   * 
    * Assert.isNull(value);
-   * </pre>
+   * 
    *
    * @param object
    *            the object to check
@@ -114,9 +114,9 @@ public class Assert {
   /**
    * Assert that an object is not {@code null} .
    *
-   * <pre class="code">
+   * 
    * Assert.notNull(clazz, &quot;The class must not be null&quot;);
-   * </pre>
+   * 
    *
    * @param object
    *            the object to check
@@ -135,9 +135,9 @@ public class Assert {
   /**
    * Assert that an object is not {@code null} .
    *
-   * <pre class="code">
+   * 
    * Assert.notNull(clazz);
-   * </pre>
+   * 
    *
    * @param object
    *            the object to check
@@ -154,9 +154,9 @@ public class Assert {
    * {@code null} and not the
    * empty String.
    *
-   * <pre class="code">
+   * 
    * Assert.hasLength(name, &quot;Name must not be empty&quot;);
-   * </pre>
+   * 
    *
    * @param text
    *            the String to check
@@ -177,9 +177,9 @@ public class Assert {
    * {@code null} and not the
    * empty String.
    *
-   * <pre class="code">
+   * 
    * Assert.hasLength(name);
-   * </pre>
+   * 
    *
    * @param text
    *            the String to check
@@ -224,9 +224,9 @@ public class Assert {
    * be {@code null} and
    * must contain at least one non-whitespace character.
    *
-   * <pre class="code">
+   * 
    * Assert.hasText(name, &quot;'name' must not be empty&quot;);
-   * </pre>
+   * 
    *
    * @param text
    *            the String to check
@@ -247,9 +247,9 @@ public class Assert {
    * be {@code null} and
    * must contain at least one non-whitespace character.
    *
-   * <pre class="code">
+   * 
    * Assert.hasText(name, &quot;'name' must not be empty&quot;);
-   * </pre>
+   * 
    *
    * @param text
    *            the String to check
@@ -266,9 +266,9 @@ public class Assert {
   /**
    * Assert that the given text does not contain the given substring.
    *
-   * <pre class="code">
+   * 
    * Assert.doesNotContain(name, &quot;rod&quot;, &quot;Name must not contain 'rod'&quot;);
-   * </pre>
+   * 
    *
    * @param textToSearch
    *            the text to search
@@ -289,9 +289,9 @@ public class Assert {
   /**
    * Assert that the given text does not contain the given substring.
    *
-   * <pre class="code">
+   * 
    * Assert.doesNotContain(name, &quot;rod&quot;);
-   * </pre>
+   * 
    *
    * @param textToSearch
    *            the text to search
@@ -311,9 +311,9 @@ public class Assert {
    * and must have at least
    * one element.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(array, &quot;The array must have elements&quot;);
-   * </pre>
+   * 
    *
    * @param array
    *            the array to check
@@ -334,9 +334,9 @@ public class Assert {
    * and must have at least
    * one element.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(array);
-   * </pre>
+   * 
    *
    * @param array
    *            the array to check
@@ -354,9 +354,9 @@ public class Assert {
    * Assert that an array has no null elements. Note: Does not complain if the
    * array is empty!
    *
-   * <pre class="code">
+   * 
    * Assert.noNullElements(array, &quot;The array must have non-null elements&quot;);
-   * </pre>
+   * 
    *
    * @param array
    *            the array to check
@@ -381,9 +381,9 @@ public class Assert {
    * Assert that an array has no null elements. Note: Does not complain if the
    * array is empty!
    *
-   * <pre class="code">
+   * 
    * Assert.noNullElements(array);
-   * </pre>
+   * 
    *
    * @param array
    *            the array to check
@@ -402,9 +402,9 @@ public class Assert {
    * {@code null} and must have at
    * least one element.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(collection, &quot;Collection must have elements&quot;);
-   * </pre>
+   * 
    *
    * @param collection
    *            the collection to check
@@ -425,9 +425,9 @@ public class Assert {
    * {@code null} and must have at
    * least one element.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(collection, &quot;Collection must have elements&quot;);
-   * </pre>
+   * 
    *
    * @param collection
    *            the collection to check
@@ -447,9 +447,9 @@ public class Assert {
    * must have at least one
    * entry.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(map, &quot;Map must have entries&quot;);
-   * </pre>
+   * 
    *
    * @param map
    *            the map to check
@@ -470,9 +470,9 @@ public class Assert {
    * must have at least one
    * entry.
    *
-   * <pre class="code">
+   * 
    * Assert.notEmpty(map);
-   * </pre>
+   * 
    *
    * @param map
    *            the map to check
@@ -489,9 +489,9 @@ public class Assert {
   /**
    * Assert that the provided object is an instance of the provided class.
    *
-   * <pre class="code">
+   * 
    * Assert.instanceOf(Foo.class, foo);
-   * </pre>
+   * 
    *
    * @param clazz
    *            the required class
@@ -510,9 +510,9 @@ public class Assert {
   /**
    * Assert that the provided object is an instance of the provided class.
    *
-   * <pre class="code">
+   * 
    * Assert.instanceOf(Foo.class, foo);
-   * </pre>
+   * 
    *
    * @param type
    *            the type to check against
@@ -543,9 +543,9 @@ public class Assert {
   /**
    * Assert that {@code superType.isAssignableFrom(subType)} is {@code true}.
    *
-   * <pre class="code">
+   * 
    * Assert.isAssignable(Number.class, myClass);
-   * </pre>
+   * 
    *
    * @param superType
    *            the super type to check
@@ -563,9 +563,9 @@ public class Assert {
   /**
    * Assert that {@code superType.isAssignableFrom(subType)} is {@code true}.
    *
-   * <pre class="code">
+   * 
    * Assert.isAssignable(Number.class, myClass);
-   * </pre>
+   * 
    *
    * @param superType
    *            the super type to check against
@@ -596,9 +596,9 @@ public class Assert {
    * {@code false}. Call isTrue if you wish to throw VLValidationException on
    * an assertion failure.
    *
-   * <pre class="code">
+   * 
    * Assert.state(id == null, &quot;The id property must not already be initialized&quot;);
-   * </pre>
+   * 
    *
    * @param expression
    *            a boolean expression
@@ -624,9 +624,9 @@ public class Assert {
    * {@link VLValidationException} on an
    * assertion failure.
    *
-   * <pre class="code">
+   * 
    * Assert.state(id == null);
-   * </pre>
+   * 
    *
    * @param expression
    *            a boolean expression

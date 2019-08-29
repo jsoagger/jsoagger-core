@@ -1,9 +1,5 @@
 /**
- * 
- */
-/**
  * @author Ramilafananana VONJISOA
- *
  */
 module io.github.jsoagger.core.utils {
   exports io.github.jsoagger.core.utils;
