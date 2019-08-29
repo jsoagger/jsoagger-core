@@ -15,8 +15,8 @@ language: java
 matrix:
   include:
     - os: osx
+      osx_image: xcode10.1    
 #      dist: xcode10.1
-      osx_image: xcode10.1
 #      jdk: openjdk11
             
 cache:
@@ -32,6 +32,8 @@ before_install:
     - export GPG_TTY=/dev/pts/4
 #    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
 #    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+    - echo $GPG_SECRET_KEYS | base64 --decode | gpg2 --import
+    - echo $GPG_OWNERTRUST | base64 --decode | gpg2 --import-ownertrust
 
 install: 
     mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
