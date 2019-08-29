@@ -29,8 +29,6 @@ public class VLLazyInfoAccessException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param message
    */
   public VLLazyInfoAccessException(String message) {
     super(message);
@@ -38,8 +36,6 @@ public class VLLazyInfoAccessException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param e
    */
   public VLLazyInfoAccessException(Throwable e) {
     super(e);
@@ -47,9 +43,6 @@ public class VLLazyInfoAccessException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param e
-   * @param message
    */
   public VLLazyInfoAccessException(Throwable e, String message) {
     super(message, e);

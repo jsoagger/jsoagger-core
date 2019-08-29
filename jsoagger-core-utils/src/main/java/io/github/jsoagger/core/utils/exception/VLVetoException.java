@@ -22,7 +22,10 @@
 package io.github.jsoagger.core.utils.exception;
 
 
-
+/**
+ * 
+ * @author vonji
+ */
 public class VLVetoException extends Exception {
   private static final long serialVersionUID = -3183563649936083053L;
 

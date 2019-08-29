@@ -31,10 +31,6 @@ public class VLException extends Exception {
 
   private static final long serialVersionUID = 1L;
 
-  /**
-   *
-   * @param message
-   */
   public VLException(String message) {
     super(message);
   }

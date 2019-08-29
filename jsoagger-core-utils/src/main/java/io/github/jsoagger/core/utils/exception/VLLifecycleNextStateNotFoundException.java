@@ -40,50 +40,30 @@ public class VLLifecycleNextStateNotFoundException extends Exception {
 
    /**
     * Constructor of VLLifecycleNextStateNotFoundException.java
-    *
-    * @param message
     */
    public VLLifecycleNextStateNotFoundException(String message) {
-
       super(message);
-
    }
 
    /**
     * Constructor of VLLifecycleNextStateNotFoundException.java
-    *
-    * @param cause
     */
    public VLLifecycleNextStateNotFoundException(Throwable cause) {
-
       super(cause);
-
    }
 
    /**
     * Constructor of VLLifecycleNextStateNotFoundException.java
-    *
-    * @param message
-    * @param cause
     */
    public VLLifecycleNextStateNotFoundException(String message, Throwable cause) {
-
       super(message, cause);
-
    }
 
    /**
     * Constructor of VLLifecycleNextStateNotFoundException.java
-    *
-    * @param message
-    * @param cause
-    * @param enableSuppression
-    * @param writableStackTrace
     */
    public VLLifecycleNextStateNotFoundException(String message, Throwable cause, boolean enableSuppression,
          boolean writableStackTrace) {
-
       super(message, cause, enableSuppression, writableStackTrace);
-
    }
 }

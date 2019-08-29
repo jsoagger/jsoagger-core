@@ -431,7 +431,7 @@ public class StringUtils {
   }
 
   /**
-   * Extract the filename from the given path, e.g. "mypath/myfile.txt" -> "myfile.txt".
+   * Extract the filename from the given path, e.g. "mypath/myfile.txt" to "myfile.txt".
    *
    * @param path the file path (may be <code>null</code>)
    * @return the extracted filename, or <code>null</code> if none
@@ -446,7 +446,7 @@ public class StringUtils {
   }
 
   /**
-   * Extract the filename extension from the given path, e.g. "mypath/myfile.txt" -> "txt".
+   * Extract the filename extension from the given path, e.g. "mypath/myfile.txt" to "txt".
    *
    * @param path the file path (may be <code>null</code>)
    * @return the extracted filename extension, or <code>null</code> if none
@@ -461,7 +461,7 @@ public class StringUtils {
   }
 
   /**
-   * Strip the filename extension from the given path, e.g. "mypath/myfile.txt" -> "mypath/myfile".
+   * Strip the filename extension from the given path, e.g. "mypath/myfile.txt" to "mypath/myfile".
    *
    * @param path the file path (may be <code>null</code>)
    * @return the path with stripped filename extension, or <code>null</code> if none

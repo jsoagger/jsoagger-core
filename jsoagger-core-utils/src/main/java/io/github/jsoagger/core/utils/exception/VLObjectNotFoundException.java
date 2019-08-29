@@ -21,8 +21,10 @@
 
 package io.github.jsoagger.core.utils.exception;
 
-
-
+/**
+ * @author vonji
+ *
+ */
 public class VLObjectNotFoundException extends Exception
 {
   private static final long serialVersionUID = 1L;

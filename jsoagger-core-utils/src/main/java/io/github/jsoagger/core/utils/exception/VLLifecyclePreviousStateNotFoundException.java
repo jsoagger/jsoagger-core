@@ -34,56 +34,34 @@ public class VLLifecyclePreviousStateNotFoundException extends Exception {
     * Constructor of VLLifecyclePreviousStateNotFoundException.java
     */
    public VLLifecyclePreviousStateNotFoundException() {
-
-
    }
 
    /**
     * Constructor of VLLifecyclePreviousStateNotFoundException.java
-    *
-    * @param message
     */
    public VLLifecyclePreviousStateNotFoundException(String message) {
-
       super(message);
-
    }
 
    /**
     * Constructor of VLLifecyclePreviousStateNotFoundException.java
-    *
-    * @param cause
     */
    public VLLifecyclePreviousStateNotFoundException(Throwable cause) {
-
       super(cause);
-
    }
 
    /**
     * Constructor of VLLifecyclePreviousStateNotFoundException.java
-    *
-    * @param message
-    * @param cause
     */
    public VLLifecyclePreviousStateNotFoundException(String message, Throwable cause) {
-
       super(message, cause);
-
    }
 
    /**
     * Constructor of VLLifecyclePreviousStateNotFoundException.java
-    *
-    * @param message
-    * @param cause
-    * @param enableSuppression
-    * @param writableStackTrace
     */
    public VLLifecyclePreviousStateNotFoundException(String message, Throwable cause,
          boolean enableSuppression, boolean writableStackTrace) {
-
       super(message, cause, enableSuppression, writableStackTrace);
-
    }
 }

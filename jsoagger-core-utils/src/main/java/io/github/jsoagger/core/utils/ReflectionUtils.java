@@ -35,7 +35,11 @@ import java.util.List;
 
 import io.github.jsoagger.core.utils.exception.VLException;
 import io.github.jsoagger.core.utils.exception.VLKnoerDoerInfoInvocationException;
-
+/**
+ * 
+ * @author vonji
+ *
+ */
 public class ReflectionUtils {
 
   /**

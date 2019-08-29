@@ -22,7 +22,10 @@
 package io.github.jsoagger.core.utils.exception;
 
 
-
+/**
+ * @author vonji
+ *
+ */
 public class VLTerminalStateException extends Exception {
 
    /**
@@ -39,18 +42,13 @@ public class VLTerminalStateException extends Exception {
 
    /**
     * Constructor of VLTerminalStateException.java
-    *
-    * @param message
     */
    public VLTerminalStateException(String message) {
-
       super(message);
    }
 
    /**
     * Constructor of VLTerminalStateException.java
-    *
-    * @param cause
     */
    public VLTerminalStateException(Throwable cause) {
 
@@ -59,27 +57,16 @@ public class VLTerminalStateException extends Exception {
 
    /**
     * Constructor of VLTerminalStateException.java
-    *
-    * @param message
-    * @param cause
     */
    public VLTerminalStateException(String message, Throwable cause) {
-
       super(message, cause);
    }
 
    /**
     * Constructor of VLTerminalStateException.java
-    *
-    * @param message
-    * @param cause
-    * @param enableSuppression
-    * @param writableStackTrace
     */
    public VLTerminalStateException(String message, Throwable cause, boolean enableSuppression,
          boolean writableStackTrace) {
-
       super(message, cause, enableSuppression, writableStackTrace);
    }
-
 }

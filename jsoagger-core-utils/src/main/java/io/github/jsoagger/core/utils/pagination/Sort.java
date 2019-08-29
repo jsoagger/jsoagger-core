@@ -71,7 +71,6 @@ public class Sort {
    * @return Null safe List
    */
   public static List<Sort> fromListString(String sortString) {
-
     List<Sort> sorts = new ArrayList<>();
 
     if (StringUtils.hasText(sortString)) {

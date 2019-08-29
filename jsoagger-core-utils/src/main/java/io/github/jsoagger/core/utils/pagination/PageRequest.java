@@ -32,7 +32,10 @@ import java.util.Map;
 //import com.mysema.query.types.OrderSpecifier;
 //import com.mysema.query.types.Predicate;
 //import com.mysema.query.types.path.EntityPathBase;
-
+/**
+ * @author vonji
+ *
+ */
 public class PageRequest implements Serializable {
 
   private static final long		serialVersionUID = 8071485258870796112L;
@@ -47,9 +50,6 @@ public class PageRequest implements Serializable {
 
   private int						page;
   private int						size;
-  //  private List<OrderSpecifier<?>>	orders;
-  //  private Predicate				predicate;
-  //  private List<EntityPathBase>	select			 = new ArrayList<>();
   private Map<String, String>		params			 = new HashMap<>();
   private List<Sort>				sort;
   private Object predicate;
@@ -72,10 +72,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   *
-   * @param page
-   * @param pageSize
-   * @param sortString
    */
   public PageRequest(int page, int pageSize, String sortString) {
     this(page, pageSize);
@@ -84,7 +80,6 @@ public class PageRequest implements Serializable {
 
 
   /**
-   *
    * Constructor
    */
   public PageRequest() {
@@ -95,11 +90,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   *
-   * @param page
-   *            page number
-   * @param pageSize
-   *            The page size
    */
   public PageRequest(int page, int pageSize) {
     if (page < 0) {
@@ -111,7 +101,10 @@ public class PageRequest implements Serializable {
     this.sort = new ArrayList<>();
   }
 
-
+/**
+ * 
+ * @return
+ */
   public boolean hasExternalSelect() {
     //return select != null && !select.isEmpty();
     return false;
@@ -130,9 +123,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   * @param page
-   * @param size
-   * @param sort
    */
   public PageRequest(int page, int size, List<Sort> sort) {
     this(page, size);
@@ -144,9 +134,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   * @param page
-   * @param size
-   * @param sort
    */
   public PageRequest(int page, int size, Sort sort) {
     this(page, size);
@@ -158,10 +145,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Constructor
-   * @param page
-   * @param pageSize
-   * @param direction
-   * @param properties
    */
   public PageRequest(int page, int pageSize, Direction direction, String... properties) {
     this(page, pageSize, Arrays.asList(new Sort(direction, properties)));
@@ -188,8 +171,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Setter of the size
-   * @param currentpageSizeToLoad
-   *            the size to set
    */
   public void setCurrentpageSizeToLoad(int currentpageSizeToLoad) {
     size = currentpageSizeToLoad;
@@ -219,9 +200,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Setter of the page
-   *
-   * @param page
-   *            the page to set
    */
   public void setPage(int page) {
     this.page = page;
@@ -230,8 +208,6 @@ public class PageRequest implements Serializable {
 
   /**
    * Getter of the field size
-   *
-   * @return the size
    */
   public int getSize() {
     return size;
@@ -241,8 +217,6 @@ public class PageRequest implements Serializable {
   /**
    * Setter of the size
    *
-   * @param size
-   *            the size to set
    */
   public void setSize(int size) {
     this.size = size;
@@ -266,10 +240,6 @@ public class PageRequest implements Serializable {
 
 
   /**
-   * @param page
-   * @param pagesize
-   * @param sorts
-   * @param defaultSort
    * @return
    */
   public static PageRequest buildFrom(int page, int pagesize, List<Sort> sorts, String defaultSort) {
@@ -286,54 +256,14 @@ public class PageRequest implements Serializable {
 
 
   /**
-   * @return the orders
+   * 
+   * @author vonji
+   *
    */
-  //  public List<OrderSpecifier<?>> getOrders() {
-  //    return orders;
-  //  }
-
-
-  /**
-   * @param orders
-   *            the orders to set
-   */
-  //  public void setOrders(List<OrderSpecifier<?>> orders) {
-  //    this.orders = orders;
-  //  }
-
-
-  /**
-   * @return the predicate
-   */
-  //  public Predicate getPredicate() {
-  //    return predicate;
-  //  }
-
-
-  /**
-   * @param predicate
-   *            the predicate to set
-   */
-  //  public void setPredicate(Predicate predicate) {
-  //    this.predicate = predicate;
-  //  }
-
-
-  //  public static PageRequest noLimit(Predicate predicate) {
-  //    PageRequest pageRequest = new PageRequest(0, -1);
-  //    if (predicate != null) {
-  //      pageRequest.setPredicate(predicate);
-  //    }
-  //    return pageRequest;
-  //  }
-
   public static class Builder {
 
     private int						page;
     private int						size;
-    //    private List<OrderSpecifier<?>>	orders;
-    //    private Predicate				predicate;
-    //    private List<EntityPathBase>	select;
     private List<Sort>				sort;
     private Map<String, String>		params = new HashMap<>();
 
@@ -366,24 +296,6 @@ public class PageRequest implements Serializable {
     }
 
 
-    //    public Builder orders(List<OrderSpecifier<?>> orders) {
-    //      this.orders = orders;
-    //      return this;
-    //    }
-    //
-    //
-    //    public Builder predicate(Predicate predicate) {
-    //      this.predicate = predicate;
-    //      return this;
-    //    }
-
-
-    //    public Builder select(List<EntityPathBase> select) {
-    //      this.select = select;
-    //      return this;
-    //    }
-
-
     public Builder sort(List<Sort> sort) {
       this.sort = sort;
       return this;
@@ -396,9 +308,6 @@ public class PageRequest implements Serializable {
   }
 
 
-  /**
-   * @param builder
-   */
   private PageRequest(Builder builder) {
     this.page = builder.page;
     this.size = builder.size;

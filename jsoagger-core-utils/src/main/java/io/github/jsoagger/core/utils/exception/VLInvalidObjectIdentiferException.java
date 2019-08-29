@@ -35,54 +35,35 @@ public class VLInvalidObjectIdentiferException extends RuntimeException {
    */
   public VLInvalidObjectIdentiferException() {
 
-
   }
 
   /**
    * Constructor of InvalidObjectIdentiferException.java
-   *
-   * @param message
    */
   public VLInvalidObjectIdentiferException(String message) {
-
     super(message);
-
   }
 
   /**
    * Constructor of InvalidObjectIdentiferException.java
-   *
-   * @param cause
    */
   public VLInvalidObjectIdentiferException(Throwable cause) {
-
     super(cause);
-
   }
 
   /**
    * Constructor of InvalidObjectIdentiferException.java
-   *
-   * @param message
-   * @param cause
    */
   public VLInvalidObjectIdentiferException(String message, Throwable cause) {
-
     super(message, cause);
-
   }
 
   /**
    * Constructor of InvalidObjectIdentiferException.java
    *
-   * @param message
-   * @param cause
-   * @param enableSuppression
-   * @param writableStackTrace
    */
   public VLInvalidObjectIdentiferException(String message, Throwable cause,
       boolean enableSuppression, boolean writableStackTrace) {
-
     super(message, cause, enableSuppression, writableStackTrace);
 
   }

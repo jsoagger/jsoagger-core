@@ -28,6 +28,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 
+ * @author vonji
+ *
+ */
 public class PageResult implements Serializable {
 
   private static final long serialVersionUID = 697918630960569774L;
@@ -51,10 +56,6 @@ public class PageResult implements Serializable {
 
   /**
    * Constructor
-   *
-   * @param content
-   * @param pageRequest
-   * @param total
    */
   public PageResult(List content, PageRequest pageRequest, long total) {
     if (null == content) {
@@ -83,29 +84,17 @@ public class PageResult implements Serializable {
   /**
    *
    * Constructor
-   *
-   * @param content
    */
   public PageResult(List content) {
     this(content, null, null == content ? 0 : content.size());
   }
 
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see org.springframework.data.domain.Page#getNumberOfElements()
-   */
   public int getNumberOfElements() {
     return content.size();
   }
 
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see org.springframework.data.domain.Page#getTotalElements()
-   */
   public long getTotalElements() {
     return total;
   }
@@ -140,9 +129,6 @@ public class PageResult implements Serializable {
   }
 
 
-  /**
-   * @param total the total to set
-   */
   public void setTotal(long total) {
     this.total = total;
   }
@@ -171,10 +157,11 @@ public class PageResult implements Serializable {
     return hasPreviousPage;
   }
 
-
-  /**
-   * @param hasPreviousPage the hasPreviousPage to set
-   */
+  
+/**
+ * 
+ * @param hasPreviousPage
+ */
   public void setHasPreviousPage(boolean hasPreviousPage) {
     this.hasPreviousPage = hasPreviousPage;
   }
@@ -263,7 +250,6 @@ public class PageResult implements Serializable {
 
 
   public PageRequest getNextPageRequest() {
-
     if (hasNextPage) {
       PageRequest pageRequest = new PageRequest();
       pageRequest.setPage(sourceRequest.getPage() + 1);

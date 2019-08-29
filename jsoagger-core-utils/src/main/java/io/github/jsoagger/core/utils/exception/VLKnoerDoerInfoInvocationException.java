@@ -32,8 +32,6 @@ public class VLKnoerDoerInfoInvocationException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param message
    */
   public VLKnoerDoerInfoInvocationException(String message) {
     super(message);
@@ -41,8 +39,6 @@ public class VLKnoerDoerInfoInvocationException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param e
    */
   public VLKnoerDoerInfoInvocationException(Throwable e) {
     super(e);
@@ -50,9 +46,6 @@ public class VLKnoerDoerInfoInvocationException extends RuntimeException {
 
   /**
    * Constructor
-   * 
-   * @param e
-   * @param message
    */
   public VLKnoerDoerInfoInvocationException(Throwable e, String message) {
     super(message, e);

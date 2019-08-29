@@ -29,15 +29,19 @@ import java.util.List;
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaProperty;*/
 
+/**
+ * 
+ * @author vonji
+ *
+ */
 public class VLBeanUtilsBean { //extends //BeanUtilsBean {
 
   private List<String> exclusionsList = new ArrayList<>();
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see org.apache.commons.beanutils.BeanUtilsBean#copyProperties(java.lang.Object,
-   * java.lang.Object)
+  /**
+   * 
+   * @param dest
+   * @param orig
    */
   public void copyProperties(Object dest, Object orig) {
     // Copy the properties, converting as necessary
