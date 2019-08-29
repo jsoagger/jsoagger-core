@@ -224,7 +224,7 @@ public class DateUtils {
 
 
 	/**
-	 * Parse and transform a date String to {@link Date}. Input date format must
+	 * Parse and transform a date String to {Date}. Input date format must
 	 * be dd/MM/yyyy HH:mm:ss Z if in normal format and dd/MM/yyyy if short
 	 * format
 	 * 

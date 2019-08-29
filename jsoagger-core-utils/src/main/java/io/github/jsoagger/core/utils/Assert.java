@@ -616,12 +616,12 @@ public class Assert {
 
 
   /**
-   * Assert a boolean expression, throwing {@link IllegalStateException} if
+   * Assert a boolean expression, throwing {IllegalStateException} if
    * the test result is
    * {@code false}.
    * <p>
-   * Call {@link #isTrue(boolean)} if you wish to throw
-   * {@link VLValidationException} on an
+   * Call {#isTrue(boolean)} if you wish to throw
+   * {VLValidationException} on an
    * assertion failure.
    *
    * 
