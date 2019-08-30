@@ -539,7 +539,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>3.1.0</version>
+					<version>3.1.1</version>
 					<executions>
 						<execution>
 							<id>attach-javadocs</id>
@@ -549,8 +549,14 @@
 						</execution>
 					</executions>
 					<configuration>
+						<source>1.8</source>
 						<sourceFileExcludes>
 							<sourceFileExclude>module-info.java</sourceFileExclude>
+							<sourceFileExclude>MultiColumnPrinter.java</sourceFileExclude>
+							<sourceFileExclude>ConsoleMultiColumnPrinter.java</sourceFileExclude>
+							<sourceFileExclude>BufferMultiColumnPrinter.java</sourceFileExclude>
+							<sourceFileExclude>Assert.java</sourceFileExclude>
+							<sourceFileExclude>StringUtils.java</sourceFileExclude>
 						</sourceFileExcludes>
 						<additionalOptions>
 							<additionalOption>-Xdoclint:none</additionalOption>

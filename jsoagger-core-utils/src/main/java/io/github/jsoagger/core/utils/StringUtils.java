@@ -393,7 +393,7 @@ public class StringUtils {
 
   /**
    * Capitalize a <code>String</code>, changing the first letter to upper case as per
-   * {Character#toUpperCase(char)}. No other letters are changed.
+   * {@link Character#toUpperCase(char)}. No other letters are changed.
    *
    * @param str the String to capitalize, may be <code>null</code>
    * @return the capitalized String, <code>null</code> if null
@@ -405,12 +405,13 @@ public class StringUtils {
 
   /**
    * Uncapitalize a <code>String</code>, changing the first letter to lower case as per
-   * {Character#toLowerCase(char)}. No other letters are changed.
+   * {@link Character#toLowerCase(char)}. No other letters are changed.
    *
    * @param str the String to uncapitalize, may be <code>null</code>
    * @return the uncapitalized String, <code>null</code> if null
    */
   public static String uncapitalize(String str) {
+
     return StringUtils.changeFirstCharacterCase(str, false);
   }
 
