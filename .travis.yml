@@ -21,14 +21,11 @@ cache:
     directories:
     - $HOME/.m2/repository
 
-before_script:
-  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-
 jobs:
   include:
   	- stage:
   	env: JDK=11 
-    script: source ./install-jdk.sh --feature 11
+    script: source .travis/install-jdk.sh --feature 11 --os linux-x64 --emit-java-home
 
 before_install:
     - export GPG_TTY=/dev/pts/4
@@ -42,7 +39,6 @@ script:
 
 install: 
     mvn -X --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
-      
       
 before_deploy:
     - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
