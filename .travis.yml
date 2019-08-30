@@ -11,7 +11,6 @@ language: java
 # 
 # -------------------------- ------------- ------------- ------------- ------------- 
 
-
 matrix:
   include:
     - os: linux
@@ -22,17 +21,24 @@ cache:
     directories:
     - $HOME/.m2/repository
 
-script:
-  - echo PATH = ${PATH}
-  - echo $JAVA_HOME
-  - java -version
-
+before_script:
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+	
+jobs:
+  include:
+  	- stage:
+  	env: JDK=11 
+    script: source ./install-jdk.sh --feature 11
 
 before_install:
     - export GPG_TTY=/dev/pts/4
     - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
     - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-
+    
+script:
+  - echo PATH = ${PATH}
+  - echo $JAVA_HOME
+  - java -version
 
 install: 
     mvn -X --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
@@ -41,7 +47,6 @@ install:
 before_deploy:
     - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
     - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
-
 
 deploy: 
 # 1. Trigger a version deploy when a commit on tag
