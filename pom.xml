@@ -555,8 +555,8 @@
 							<sourceFileExclude>MultiColumnPrinter.java</sourceFileExclude>
 							<sourceFileExclude>ConsoleMultiColumnPrinter.java</sourceFileExclude>
 							<sourceFileExclude>BufferMultiColumnPrinter.java</sourceFileExclude>
-							<sourceFileExclude>Assert.java</sourceFileExclude>
-							<sourceFileExclude>StringUtils.java</sourceFileExclude>
+<!-- 							<sourceFileExclude>Assert.java</sourceFileExclude> -->
+<!-- 							<sourceFileExclude>StringUtils.java</sourceFileExclude> -->
 						</sourceFileExcludes>
 						<additionalOptions>
 							<additionalOption>-Xdoclint:none</additionalOption>
