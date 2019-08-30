@@ -21,21 +21,20 @@ cache:
     directories:
     - $HOME/.m2/repository
 
-jobs:
-  include:
-  	- stage:
-  	env: JDK=11 
-    script: source .travis/install-jdk.sh --feature 11 --os linux-x64 --emit-java-home
-
 before_install:
     - export GPG_TTY=/dev/pts/4
     - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
     - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-    
+    - .travis/install-jdk.sh --feature 11 --os linux-x64 --emit-java-home
+
 script:
+  - echo "-------------------------------------"
+  - echo "-------------------------------------"
   - echo PATH = ${PATH}
   - echo $JAVA_HOME
   - java -version
+  - echo "-------------------------------------"
+  - echo "-------------------------------------"
 
 install: 
     mvn -X --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
