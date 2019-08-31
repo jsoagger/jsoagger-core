@@ -46,7 +46,7 @@ before_install:
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 
-install: ./.travis/install.sh
+install: 
   script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
   
 after_script:
