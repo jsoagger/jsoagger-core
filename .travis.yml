@@ -44,6 +44,8 @@ before_install:
   - export GPG_TTY=/dev/pts/4
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+  - chmod o+x ./travis/install.sh
+  - chmod o+x ./travis/install-jdk.sh
 
 install: ./.travis/install.sh
 
