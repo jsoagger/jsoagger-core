@@ -10,48 +10,51 @@ language: java
 # commande >>>>>>>>>> travis setup releases --com --force
 # 
 # -------------------------- ------------- ------------- ------------- ------------- 
-
 matrix:
   include:
     - os: linux
       dist: xenial
+      jdk: openjdk11
+            
 cache:
     directories:
     - $HOME/.m2/repository
-env:
-  - JDK=amazon-corretto-11
-  
-jobs:
- include:
-  - stage: amazon-corretto-11
-    env: JDK=13
-    script: source install-jdk.sh -F 13 && mvn -X --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
 
 before_install:
-  - export GPG_TTY=/dev/pts/4
-  - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
-  - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+    - export GPG_TTY=/dev/pts/4
+    - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
+    - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
 
-install: skip 
+install: 
+    mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+      
+before_deploy:
+    - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+    - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
 
-#before_script: skip
-
-#before_cache: skip
-
-#after_success: skip
-
-#after_failure: skip
-
-#before_deploy: skip
-
-#deploy: skip
-
-#after_deploy: skip  
-  
-after_script:
-  - echo JAVA_HOME = ${JAVA_HOME}
+deploy: 
+# 1. Trigger a version deploy when a commit on tag
+# 2. And create a github release 
+    - provider: script
+      script: bash .travis/release.sh 
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
+        repo: jsoagger/jsoagger-core
+        
+    - provider: releases
+      api_key:
+        secure: XsFDpkc7zCogP3/n256Mr8eZ3n+gDooR10vkgl4G9HPQNeMGYV1flYnY7eKaoc9bQoIQTVojjf1rqGMdjrpKDadkGSIy9R9kMxENn/YBjnO46crYHYth3P33Nb0eqwyfqYc11eQXAifZY1fO1TSyLmwjI0sZyG0GqBphud9aPrbYXYa2JeqoyFQmw+NAd55GxBDHluzTOKtxTaCT2GkpVPPt/vPBLv7hNeDYkyWkT+EfBCzLtbW4CYn1sKhlkBv1ggoTfGFyfC62u9aOrEVQDBWGXea95jlzNaPJ2w3zj2JRb+jdRQPFi8eJDIkDfF7J+vUCIDP9cukdEk3RMcqtcgXvLWKvvgY4c1XqIS6zbX4b7gw8Oh/A0w0GKHpz2UVf2VrMzomIQkg/d9FZsmvtZ1W+XtBaHv4b0RHBDhLKTt+adrB1GUawwunkHaNr93Z35IbvAbWAGZfljn3nEjIKo4WLMaRNwfnAcHCOhZscAka3NKfNIJkYR4h76q+SLvZlf8trzy69jHtZCNF3u6Iuhxvhdvf1mvOFBMivdPoTIoxjrZZjbiRm0+p6QBOYoT+6UvdQrpUWuD4v7bBN9nwSj0KHKKEL9uYmqGz3bRtrQYnqJowY3kNZzhErmubsD3vmvgq+ouqPAJeswTB6W3sodeyEaXWrVeDQ+qZUmKWQqiM=
+      skip_cleanup: true
+      on:
+          tags: true
+          all_branches: true
+          condition: $TRAVIS_OS_NAME = linux
+          repo: jsoagger/jsoagger-core
+ 
+script:
   - echo PATH = ${PATH}
-  - ls ${JAVA_HOME}
+  - echo $JAVA_HOME
   - java -version
-
+ 

@@ -535,8 +535,27 @@
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>2.5.4</version>
 				</plugin>
+				
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-jar-plugin</artifactId>
+			            <version>${maven-jar-plugin.version}</version>
+			            <executions>
+			                <execution>
+			                    <id>empty-javadoc-jar</id>
+			                    <phase>package</phase>
+			                    <goals>
+			                        <goal>jar</goal>
+			                    </goals>
+			                    <configuration>
+			                        <classifier>javadoc</classifier>
+			                        <classesDirectory>${basedir}/javadoc</classesDirectory>
+			                    </configuration>
+			                </execution>
+			            </executions>
+			        </plugin>
 
-				<plugin>
+			<!-- 	<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>3.1.0</version>
@@ -552,9 +571,6 @@
 						<source>8</source>
 						<sourceFileExcludes>
 							<sourceFileExclude>module-info.java</sourceFileExclude>
-<!-- 							<sourceFileExclude>MultiColumnPrinter.java</sourceFileExclude> -->
-<!-- 							<sourceFileExclude>ConsoleMultiColumnPrinter.java</sourceFileExclude> -->
-<!-- 								<sourceFileExclude>BufferMultiColumnPrinter.java</sourceFileExclude> -->
 							<sourceFileExclude>Assert.java</sourceFileExclude>
 							<sourceFileExclude>StringUtils.java</sourceFileExclude>
 						</sourceFileExcludes>
@@ -562,7 +578,7 @@
 							<additionalOption>-Xdoclint:none</additionalOption>
 						</additionalOptions>
 					</configuration>
-				</plugin>
+				</plugin> -->
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
