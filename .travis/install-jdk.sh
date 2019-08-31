@@ -196,7 +196,7 @@ function determine_url() {
     case "${feature}" in
         9) url="${DOWNLOAD}/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_${os}_bin.tar.gz"; return;;
        10) url="${DOWNLOAD}/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_${os}_bin.tar.gz"; return;;
-       11) url="${DOWNLOAD}/GA/jdk11/9/GPL/openjdk-11.0.3_${os}_bin.tar.gz"; return;;
+       11) url="${DOWNLOAD}/GA/jdk11/9/GPL/openjdk-11.0.2_${os}_bin.tar.gz"; return;;
        12) url="${DOWNLOAD}/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_${os}_bin.tar.gz"; return;;
     esac
 
