@@ -15,19 +15,17 @@ matrix:
   include:
     - os: linux
       dist: xenial
-#      jdk: openjdk11
- 
 cache:
     directories:
     - $HOME/.m2/repository
 env:
   - JDK=amazon-corretto-11
   
-#jobs:
-#include:
-#  - stage:
-#    env: JDK=amazon-corretto-11
-#    script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
+jobs:
+ include:
+  - stage: amazon-corretto-11
+    env: JDK=amazon-corretto-11
+    script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
 #  - stage: 🍺 adoptopenjdk.net - HotSpot - Eclipse OpenJ9
 #    env: JDK=11 + Hotspot
 #    script: source install-jdk.sh --url 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk11?openjdk_impl=hotspot&os=linux&arch=x64&release=latest&heap_size=normal&type=jdk'
@@ -35,19 +33,27 @@ env:
 #    env: JDK=11 + OpenJ9
 #    script: source install-jdk.sh --url 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk11?openjdk_impl=openj9&os=linux&arch=x64&release=latest&heap_size=normal&type=jdk'
 
-#  - # stage: ...
-#    # Amazon -- https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
-#    env: JDK=amazon-corretto-11
-#    script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
-
 before_install:
   - export GPG_TTY=/dev/pts/4
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 
-install: 
-  script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
+install: skip 
+
+#before_script: skip
+
+#before_cache: skip
+
+#after_success: skip
+
+#after_failure: skip
+
+#before_deploy: skip
+
+#deploy: skip
+
+#after_deploy: skip  
   
 after_script:
   - echo JAVA_HOME = ${JAVA_HOME}
