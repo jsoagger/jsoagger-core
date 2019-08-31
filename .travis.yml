@@ -45,7 +45,7 @@ before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
 
-install: ./install.sh
+install: ./.travis/install.sh
 
 after_script:
   - echo JAVA_HOME = ${JAVA_HOME}
