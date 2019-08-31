@@ -25,7 +25,7 @@ jobs:
  include:
   - stage: amazon-corretto-11
     env: JDK=13
-    script: source install-jdk.sh -F 13 && mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
+    script: source install-jdk.sh -F 13 && mvn -X --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=false -B -V
 
 before_install:
   - export GPG_TTY=/dev/pts/4
