@@ -44,11 +44,11 @@ before_install:
   - export GPG_TTY=/dev/pts/4
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-  - chmod o+x ./.travis/install.sh
-  - chmod o+x ./.travis/install-jdk.sh
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 
 install: ./.travis/install.sh
-
+  script: source install-jdk.sh --url https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz
+  
 after_script:
   - echo JAVA_HOME = ${JAVA_HOME}
   - echo PATH = ${PATH}
