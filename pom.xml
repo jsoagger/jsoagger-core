@@ -556,6 +556,7 @@
 			        </plugin>
 
 			<!-- 	
+			
 			<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -580,6 +581,7 @@
 						</additionalOptions>
 					</configuration>
 				</plugin> 
+				
 				-->
 
 				<plugin>
@@ -850,6 +852,7 @@
 							</excludes>
 						</configuration>
 					</plugin>
+					
 
 					<!-- To sign the artifacts -->
 					<plugin>
