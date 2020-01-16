@@ -23,9 +23,8 @@ package io.github.jsoagger.jfxcore.api.wizard;
 
 import io.github.jsoagger.jfxcore.api.IBuildable;
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import io.github.jsoagger.jfxcore.api.IFieldset;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewComponentXML;
-
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;

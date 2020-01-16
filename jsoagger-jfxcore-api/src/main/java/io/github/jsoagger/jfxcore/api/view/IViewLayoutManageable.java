@@ -24,8 +24,7 @@ package io.github.jsoagger.jfxcore.api.view;
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
 import io.github.jsoagger.jfxcore.api.IParentResponsiveMatrix;
 import io.github.jsoagger.jfxcore.api.ViewLayoutPosition;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewComponentXML;
-
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import javafx.scene.Node;
 
 /**

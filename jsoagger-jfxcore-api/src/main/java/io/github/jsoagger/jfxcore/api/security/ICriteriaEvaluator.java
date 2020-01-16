@@ -24,7 +24,7 @@ package io.github.jsoagger.jfxcore.api.security;
 
 import io.github.jsoagger.jfxcore.api.ICriteriaContext;
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewFilterXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewFilterXML;
 
 /**
  * @author Ramilafananana  VONJISOA

@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -374,8 +374,8 @@ public class OperationData implements Serializable, Cloneable {
    * @return
    */
   public boolean fullIdEquals(OperationData data) {
-    String fullId = (String) getAttributes().get("fullId");
-    String fullId2 = (String) data.getAttributes().get("fullId");
+    String fullId = (String) getAttributes().get("id");
+    String fullId2 = (String) data.getAttributes().get("id");
 
     if(fullId == null && fullId2 != null) return false;
     return fullId.equalsIgnoreCase(fullId2);
@@ -387,8 +387,8 @@ public class OperationData implements Serializable, Cloneable {
    * @return
    */
   public boolean masterFullIdEquals(OperationData data) {
-    String fullId = (String) getMasterAttributes().get("fullId");
-    String fullId2 = (String) data.getMasterAttributes().get("fullId");
+    String fullId = (String) getMasterAttributes().get("id");
+    String fullId2 = (String) data.getMasterAttributes().get("id");
 
     if(fullId == null && fullId2 != null) return false;
 

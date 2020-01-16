@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import io.github.jsoagger.jfxcore.api.ICriteriaContext;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewConfigXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewConfigXML;
 
 /**
  *

@@ -25,9 +25,9 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import io.github.jsoagger.core.bridge.result.OperationData;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewPropertiesXML;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewPropertyXML;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewRootMenuRowXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewPropertiesXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewPropertyXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewRootMenuRowXML;
 
 /**
  * @author Ramilafananana VONJISOA

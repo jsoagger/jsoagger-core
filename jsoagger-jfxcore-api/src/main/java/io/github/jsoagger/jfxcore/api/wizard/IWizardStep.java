@@ -24,8 +24,7 @@ package io.github.jsoagger.jfxcore.api.wizard;
 
 import io.github.jsoagger.jfxcore.api.IBuildable;
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewComponentXML;
-
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import javafx.beans.property.SimpleBooleanProperty;
 
 /**

@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -25,8 +25,7 @@ package io.github.jsoagger.jfxcore.api.presenter;
 
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
 import io.github.jsoagger.jfxcore.api.ModelPresenter;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewComponentXML;
-
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import javafx.scene.Node;
 
 /**
@@ -36,14 +35,22 @@ import javafx.scene.Node;
  */
 public interface ModelIdentityPresenter extends ModelPresenter {
 
-  public Node provideIdentityOf(IJSoaggerController controller, VLViewComponentXML component);
+  default Node provideIdentityOf(IJSoaggerController controller, VLViewComponentXML component) {
+	  return null;
+  }
 
 
-  public String identityOf(IJSoaggerController controller, VLViewComponentXML component);
+  default String identityOf(IJSoaggerController controller, VLViewComponentXML component) {
+	  return null;
+  }
 
 
-  String identityOf(IJSoaggerController controller, VLViewComponentXML configuration, Object forModel);
+  default String identityOf(IJSoaggerController controller, VLViewComponentXML configuration, Object forModel) {
+	  return null;
+  }
 
 
-  Node provideIdentityOf(IJSoaggerController controller, VLViewComponentXML configuration, Object forModel);
+ default  Node provideIdentityOf(IJSoaggerController controller, VLViewComponentXML configuration, Object forModel) {
+	 return null;
+ }
 }

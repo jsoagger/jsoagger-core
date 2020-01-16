@@ -4,8 +4,8 @@
 package io.github.jsoagger.jfxcore.api.services;
 
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewContextFilterXML;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewFilterXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewContextFilterXML;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewFilterXML;
 
 /**
  * @author Ramilafananana  VONJISOA

@@ -24,9 +24,8 @@ package io.github.jsoagger.jfxcore.api.form;
 import java.util.List;
 
 import io.github.jsoagger.jfxcore.api.IJSoaggerController;
+import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import io.github.jsoagger.jfxcore.api.IFormFieldsetRow;
-import io.github.jsoagger.jfxcore.viewdefinition.json.xml.model.VLViewComponentXML;
-
 import javafx.beans.property.Property;
 import javafx.scene.Node;
 
