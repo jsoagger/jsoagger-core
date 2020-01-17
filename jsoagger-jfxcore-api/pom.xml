@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>io.github.jsoagger</groupId>
 		<artifactId>jsoagger-core</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.3</version>
 	</parent>
 
 	<name>JSoagger jfxcore api</name>
@@ -13,7 +13,6 @@
 	<artifactId>jsoagger-jfxcore-api</artifactId>
 
 	<properties>
-		<root.project.location>${project.basedir}/../</root.project.location>
 		<java.source.level>11</java.source.level>
 		<java.target.level>1.8</java.target.level>
 	</properties>
@@ -42,8 +41,6 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<scope>system</scope>
-			<systemPath>${root.project.location}/external-libs/gson-2.8.6-SNAPSHOT.jar</systemPath>
 		</dependency>
 	</dependencies>
 
