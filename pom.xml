@@ -727,18 +727,25 @@
 			<name>Maven Repository Switchboard</name>
 			<layout>default</layout>
 			<url>https://repo1.maven.org/maven2</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<checksumPolicy>ignore</checksumPolicy>
-			</releases>
 		</repository>
 		<repository>
 			<id>jboss.org</id>
 			<name>JBoss Repository</name>
 			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+		
+		<repository>
+			<id>nexitia.com</id>
+			<name>Nexitia releases</name>
+			<url>http://nexus.nexitia.com/repository/nexitia-group/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
 		</repository>
 	</repositories>
 
@@ -769,13 +776,13 @@
 		</site>
 
 		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<id>nexitia-snapshots</id>
+			<url>http://nexus.nexitia.com/repository/nexitia-snapshots</url>
 		</snapshotRepository>
 		
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>nexitia-release</id>
+			<url>http://nexus.nexitia.com/repository/nexitia-releases/</url>
 		</repository>
 	</distributionManagement>
 
@@ -810,8 +817,8 @@
 						<version>1.6.8</version>
 						<extensions>true</extensions>
 						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<serverId>nexitia</serverId>
+							<nexusUrl>http://nexus.nexitia.com/</nexusUrl>
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
 					</plugin>

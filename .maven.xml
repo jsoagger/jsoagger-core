@@ -6,6 +6,12 @@
             <username>${env.SONATYPE_USERNAME}</username>
             <password>${env.SONATYPE_PASSWORD}</password>
         </server>
+        <server>
+            <!-- NEXITIA Central Deployment -->
+            <id>nexitia</id>
+            <username>${env.NX_NEXUS_USERNAME}</username>
+            <password>${env.NX_NEXUS_PASSWORD}</password>
+        </server>
     </servers>
 
     <profiles>
