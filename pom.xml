@@ -654,7 +654,7 @@
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<releaseProfiles>nexitia-releases</releaseProfiles>
+						<releaseProfiles>release</releaseProfiles>
 					</configuration>
 				</plugin>
 				<plugin>
