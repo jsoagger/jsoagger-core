@@ -653,6 +653,13 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>
+					 <dependencies>
+				        <dependency>
+				            <groupId>org.apache.maven.scm</groupId>
+				            <artifactId>maven-scm-provider-gitexe</artifactId>
+				            <version>1.9.2</version>
+				        </dependency>
+				    </dependencies>
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
@@ -717,8 +724,7 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:ssh://github.com/jsoagger/jsoagger-core.git</connection>
-		<developerConnection>scm:git:ssh://github.com/jsoagger/jsoagger-core.git</developerConnection>
+		<developerConnection>https://github.com/jsoagger/jsoagger-core.git</developerConnection>
 		<url>https://github.com/jsoagger/</url>
 		<tag>HEAD</tag>
 	</scm>
