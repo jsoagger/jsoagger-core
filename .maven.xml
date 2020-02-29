@@ -18,7 +18,7 @@
         </server>
         <server>
         	<id>jsoaggercore.repo</id>
-            <username>${env.gitUsername}</username>
+            <username>git</username>
             <password>${env.gitPassword}</password>
         </server>
     </servers>
