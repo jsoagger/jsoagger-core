@@ -654,9 +654,7 @@
 					<configuration>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<releaseProfiles>releases</releaseProfiles>
-						<password>${gitPassword}</password>
-						<username>${gitUsername}</username>
+						<releaseProfiles>nexitia-releases</releaseProfiles>
 					</configuration>
 				</plugin>
 				<plugin>
