@@ -808,7 +808,6 @@
 							<skipStaging>true</skipStaging>
 						</configuration>
 					</plugin>
-					<!-- To generate javadoc -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
@@ -822,7 +821,6 @@
 							</execution>
 						</executions>
 					</plugin>
-
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
@@ -844,6 +842,11 @@
 							</excludes>
 						</configuration>
 					</plugin>
+					<plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-site-plugin</artifactId>
+		                <version>3.7.1</version>
+		            </plugin>
 
 					<!-- To sign the artifacts <plugin> <groupId>org.apache.maven.plugins</groupId> 
 						<artifactId>maven-gpg-plugin</artifactId> <version>1.6</version> <executions> 
