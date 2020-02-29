@@ -654,9 +654,11 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>
 					<configuration>
-						<tagNameFormat>v@{project.version}</tagNameFormat>
+						<tagNameFormat>@{project.version}</tagNameFormat>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<releaseProfiles>releases</releaseProfiles>
+						<password>${env.gitPassword}</password>
+						<username>${env.gitUsername}</username>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -771,8 +773,8 @@
 
 	<distributionManagement>
 		<site>
-			<id>api.wiki</id>
-			<url>https://github.com/jsoagger</url>
+			<id>jsoaggercore.repo</id>
+			<url>https://github.com/jsoagger/jsoagger-core.git</url>
 		</site>
 
 		<snapshotRepository>
@@ -859,7 +861,6 @@
 						</configuration>
 					</plugin>
 					
-
 					<!-- To sign the artifacts 
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
