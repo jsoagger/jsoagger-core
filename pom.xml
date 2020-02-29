@@ -791,7 +791,7 @@
 		</snapshotRepository>
 		
 		<repository>
-			<id>nexitia-release</id>
+			<id>nexitia-releases</id>
 			<url>http://nexus.nexitia.com/repository/nexitia-releases/</url>
 		</repository>
 	</distributionManagement>
@@ -817,17 +817,15 @@
 					<name>release</name>
 				</property>
 			</activation>
-
 			<build>
 				<plugins>
-					<!-- To release to Maven central -->
 					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
 						<version>1.6.8</version>
 						<extensions>true</extensions>
 						<configuration>
-							<serverId>nexitia</serverId>
+							<serverId>nexitia-releases</serverId>
 							<nexusUrl>http://nexus.nexitia.com/</nexusUrl>
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
