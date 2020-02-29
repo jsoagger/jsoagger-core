@@ -26,8 +26,6 @@
 	</modules>
 
 	<properties>
-		<internal.core.project.version>${project.version}</internal.core.project.version>
-
 		<additionalparam>-Xdoclint:none</additionalparam>
 
 		<maven.build.timestamp.format>ddMMyyyy-HHmm</maven.build.timestamp.format>
@@ -473,29 +471,29 @@
 			<dependency>
 				<groupId>io.github.jsoagger</groupId>
 				<artifactId>jsoagger-core-utils</artifactId>
-				<version>${internal.core.project.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.github.jsoagger</groupId>
 				<artifactId>jsoagger-core-bridge</artifactId>
-				<version>${internal.core.project.version}</version>
+				<version>${project.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>io.github.jsoagger</groupId>
 				<artifactId>jsoagger-core-ioc</artifactId>
-				<version>${internal.core.project.version}</version>
+				<version>${project.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>io.github.jsoagger</groupId>
 				<artifactId>jsoagger-jfxcore-api</artifactId>
-				<version>${internal.core.project.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.github.jsoagger</groupId>
 				<artifactId>jsoagger-jfxcore-viewdefinition-json</artifactId>
-				<version>${internal.core.project.version}</version>
+				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
