@@ -28,6 +28,8 @@
 	<properties>
 		<additionalparam>-Xdoclint:none</additionalparam>
 
+		<project.scm.id>jsoaggercore.repo</project.scm.id>
+
 		<maven.build.timestamp.format>ddMMyyyy-HHmm</maven.build.timestamp.format>
 		<internal.fx.project.version>11.0.4</internal.fx.project.version>
 		<internal.operations.project.version>11.0.4</internal.operations.project.version>
