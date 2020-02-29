@@ -713,8 +713,8 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/jsoagger/jsoagger-core.git</connection>
-		<developerConnection>scm:git:https://github.com/jsoagger/jsoagger-core.git</developerConnection>
+		<connection>scm:git:ssh://github.com/jsoagger/jsoagger-core.git</connection>
+		<developerConnection>scm:git:ssh://github.com/jsoagger/jsoagger-core.git</developerConnection>
 		<url>https://github.com/jsoagger/</url>
 		<tag>HEAD</tag>
 	</scm>
