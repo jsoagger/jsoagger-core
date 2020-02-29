@@ -788,7 +788,7 @@
 		
 		<repository>
 			<id>nexitia-releases</id>
-			<url>http://nexus.nexitia.com/repository/nexitia-releases/</url>
+			<url>http://nexus.nexitia.com/repository/nexitia-releases</url>
 		</repository>
 	</distributionManagement>
 
@@ -820,11 +820,6 @@
 						<artifactId>nexus-staging-maven-plugin</artifactId>
 						<version>1.6.8</version>
 						<extensions>true</extensions>
-						<configuration>
-							<serverId>nexitia-releases</serverId>
-							<nexusUrl>http://nexus.nexitia.com/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
 					</plugin>
 					<!-- To generate javadoc -->
 					<plugin>
