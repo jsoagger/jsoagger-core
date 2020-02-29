@@ -18,8 +18,8 @@
         </server>
         <server>
         	<id>jsoaggercore.repo</id>
-            <username>${env.gitUsername}</username>
-            <password>${env.gitPassword}</password>
+            <username>rmvonji</username>
+            <password>gHE-7sL-tQT-bdK</password>
         </server>
     </servers>
 </settings>

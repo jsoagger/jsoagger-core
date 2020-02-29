@@ -657,8 +657,8 @@
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<releaseProfiles>releases</releaseProfiles>
-						<password>${env.gitPassword}</password>
-						<username>${env.gitUsername}</username>
+						<password>${gitPassword}</password>
+						<username>${gitUsername}</username>
 					</configuration>
 				</plugin>
 				<plugin>
