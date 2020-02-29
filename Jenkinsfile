@@ -83,23 +83,18 @@ pipeline {
          	steps {
 	         	withCredentials([usernamePassword(credentialsId: 'jenkins_github_credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')])
 	         	{
-	         		sh 'export ENV_GIT_USERNAME=$GIT_USERNAME'
-	         		sh 'export ENV_GIT_PASSWORD=$GIT_PASSWORD'
-
-	                sh 'mvn --settings .maven.xml -Dresume=false -DdryRun=true -Dmaven.test.failure.ignore=true -DskipTests=true -Darguments=\"-Dmaven.javadoc.skip=true\" release:prepare -B -V -Prelease'
-			        sh 'mvn --settings .maven.xml -Dresume=false -Dmaven.test.failure.ignore=true -DskipTests=true -Darguments=\"-Dmaven.javadoc.skip=true\" -B -V release:prepare release:perform -Prelease'
+	                sh 'mvn --settings .maven.xml -DENV_GIT_USERNAME=$GIT_USERNAME -ENV_GIT_PASSWORD=$GIT_PASSWORD -Dresume=false -DdryRun=true -Dmaven.test.failure.ignore=true -DskipTests=true -Darguments=\"-Dmaven.javadoc.skip=true\" release:prepare -B -V -Prelease'
+			        sh 'mvn --settings .maven.xml -DENV_GIT_USERNAME=$GIT_USERNAME -ENV_GIT_PASSWORD=$GIT_PASSWORD -Dresume=false -Dmaven.test.failure.ignore=true -DskipTests=true -Darguments=\"-Dmaven.javadoc.skip=true\" -B -V release:prepare release:perform -Prelease'
 	         	}
          	}
          	
          	post {  
          		 always {
          		 	sh '''
-	         			export ENV_GIT_USERNAME=
-		         		export ENV_GIT_PASSWORD=
+         		 		echo "End of job"
 		         	'''
          		 }
 				 success {  
-					 echo "Sending deploy success email"
 					 emailext   body: "$PROJECT_NAME, NEW RELEASE is avalaible.<br/> You can check jenkins console output at $BUILD_URL to view full the results.", 
 								subject: "$PROJECT_NAME, new Release avalaible", 
 								from: "$EMAIL_SENDER", 
@@ -107,7 +102,6 @@ pipeline {
 								attachLog: false;
 				 }  
 				 failure {
-					echo "Build failed deploy email"
 					emailext    body: "$PROJECT_NAME, RELEASE failed. <br/> You can check jenkins console output at $BUILD_URL to view full the results.", 
 								subject: "$PROJECT_NAME, RELEASE Failure", 
 								from: "$EMAIL_SENDER", 
