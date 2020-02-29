@@ -737,11 +737,6 @@
 	</pluginRepositories>
 
 	<distributionManagement>
-		<site>
-			<id>jsoaggercore.repo</id>
-			<url>https://github.com/jsoagger/jsoagger-core.git</url>
-		</site>
-
 		<snapshotRepository>
 			<id>nexitia-snapshots</id>
 			<url>http://nexus.nexitia.com/repository/nexitia-snapshots</url>
