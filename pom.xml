@@ -761,7 +761,6 @@
 	</developers>
 
 	<profiles>
-		<!-- Activate using the release property: mvn clean install -Prelease -->
 		<profile>
 			<id>release</id>
 			<activation>
