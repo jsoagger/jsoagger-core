@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -22,19 +22,22 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 
 
-
 import java.util.List;
+
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
 
 /**
  * @author Ramilafananana VONJISOA
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLViewRootMenuRowsXML {
 
-  private String							id;
-  private List<VLViewRootMenuRowXML>	rows;
+  private String id;
+  private List<VLViewRootMenuRowXML> rows;
 
+  public VLViewRootMenuRowsXML() {}
 
   /**
    * Getter of id
@@ -49,8 +52,7 @@ public class VLViewRootMenuRowsXML {
   /**
    * Setter of id
    *
-   * @param id
-   *            the id to set
+   * @param id the id to set
    */
   public void setId(String id) {
     this.id = id;
@@ -70,8 +72,7 @@ public class VLViewRootMenuRowsXML {
   /**
    * Setter of rows
    *
-   * @param rows
-   *            the rows to set
+   * @param rows the rows to set
    */
   public void setRows(List<VLViewRootMenuRowXML> rows) {
     this.rows = rows;
@@ -81,7 +82,8 @@ public class VLViewRootMenuRowsXML {
   /**
    * @{inheritedDoc}
    */
-  @Override public String toString() {
+  @Override
+  public String toString() {
     StringBuilder builder = new StringBuilder();
     builder.append("VLViewRootMenuRowsXML [");
     if (id != null) {

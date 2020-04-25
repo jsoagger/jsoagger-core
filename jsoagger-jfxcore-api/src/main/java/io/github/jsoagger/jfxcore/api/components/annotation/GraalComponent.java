@@ -18,31 +18,17 @@
  * =========================LICENSE_END==================================
  */
 
-package io.github.jsoagger.jfxcore.viewdef.json.xml.model.appcontext;
+package io.github.jsoagger.jfxcore.api.components.annotation;
 
-import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * @author Ramilafananana VONJISOA
+ *
  */
-@GraalComponent
-public class VLImportXML {
-
-  private String filePath;
-
-  public VLImportXML() {}
-
-  /**
-   * @return the filePath
-   */
-  public String getFilePath() {
-    return filePath;
-  }
-
-  /**
-   * @param filePath the filePath to set
-   */
-  public void setFilePath(String filePath) {
-    this.filePath = filePath;
-  }
+@Retention(RetentionPolicy.RUNTIME)
+public @interface GraalComponent {
 }

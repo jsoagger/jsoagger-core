@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -24,6 +24,7 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.StringUtils;
 
 /**
@@ -31,19 +32,19 @@ import io.github.jsoagger.jfxcore.viewdef.json.xml.StringUtils;
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLViewRootMenuRowXML {
 
-  private String							id;
-  private VLViewPropertiesXML		properties;
-  private VLAccessRulesXML			accessRules;
-  private List<VLViewRootMenuRowXML>	subMenus;
+  private String id;
+  private VLViewPropertiesXML properties;
+  private VLAccessRulesXML accessRules;
+  private List<VLViewRootMenuRowXML> subMenus;
 
 
   /**
    * Constructor
    */
-  public VLViewRootMenuRowXML() {
-  }
+  public VLViewRootMenuRowXML() {}
 
 
   /**
@@ -59,8 +60,7 @@ public class VLViewRootMenuRowXML {
   /**
    * Setter of id
    *
-   * @param id
-   *            the id to set
+   * @param id the id to set
    */
   public void setId(String id) {
     this.id = id;
@@ -80,8 +80,7 @@ public class VLViewRootMenuRowXML {
   /**
    * Setter of properties
    *
-   * @param properties
-   *            the properties to set
+   * @param properties the properties to set
    */
   public void setProperties(VLViewPropertiesXML properties) {
     this.properties = properties;
@@ -101,8 +100,7 @@ public class VLViewRootMenuRowXML {
   /**
    * Setter of accessRules
    *
-   * @param accessRules
-   *            the accessRules to set
+   * @param accessRules the accessRules to set
    */
   public void setAccessRules(VLAccessRulesXML accessRules) {
     this.accessRules = accessRules;
@@ -122,8 +120,7 @@ public class VLViewRootMenuRowXML {
   /**
    * Setter of subMenus
    *
-   * @param subMenus
-   *            the subMenus to set
+   * @param subMenus the subMenus to set
    */
   public void setSubMenus(List<VLViewRootMenuRowXML> subMenus) {
     this.subMenus = subMenus;
@@ -143,7 +140,9 @@ public class VLViewRootMenuRowXML {
    * @return
    */
   public String getRuleResolverName() {
-    if (accessRules != null) { return accessRules.getRuleResolverName(); }
+    if (accessRules != null) {
+      return accessRules.getRuleResolverName();
+    }
     return null;
   }
 
@@ -157,11 +156,9 @@ public class VLViewRootMenuRowXML {
         if (property.getName().equals(name)) {
 
           try {
-            result = property.getValue() != null
-                && StringUtils.isNotBlank(property.getValue())
+            result = property.getValue() != null && StringUtils.isNotBlank(property.getValue())
                 && property.getValue().equalsIgnoreCase("true");
-          }
-          catch (final Exception e) {
+          } catch (final Exception e) {
           }
         }
       }
@@ -292,7 +289,8 @@ public class VLViewRootMenuRowXML {
   /**
    * @{inheritedDoc}
    */
-  @Override public String toString() {
+  @Override
+  public String toString() {
     StringBuilder builder = new StringBuilder();
     builder.append("VLViewRootMenuRowXML [");
     if (id != null) {
@@ -320,8 +318,8 @@ public class VLViewRootMenuRowXML {
 
   public static class Builder {
 
-    private String				id;
-    private VLViewPropertiesXML	properties;
+    private String id;
+    private VLViewPropertiesXML properties;
 
 
     public Builder id(String id) {

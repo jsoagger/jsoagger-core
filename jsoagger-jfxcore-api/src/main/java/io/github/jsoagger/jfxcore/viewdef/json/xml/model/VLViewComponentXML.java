@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -29,35 +29,39 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.StringUtils;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.XMLConstants;
 
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewComponentXML implements Cloneable, Serializable {
 
-  private static final long	serialVersionUID	= 8225109214272813121L;
-  private static final String	PATH_SEPARATOR		= "/";
+  private static final long serialVersionUID = 8225109214272813121L;
+  private static final String PATH_SEPARATOR = "/";
 
-  private String						id;
-  private String						reference;
-  private String						separatorAfter;
-  private String						controller;
-  private String						processor;
-  private String						model;
-  private List<VLViewComponentXML>	subcomponents;
-  private String						visibleIf;
-  private String						rootView;
-  private String						layoutProcessor;
-  private String						criteria;
-  private String						responsiveOrder;
-  private String						masterColumn;
-  private String						defaultButton;
+  private String id;
+  private String reference;
+  private String separatorAfter;
+  private String controller;
+  private String processor;
+  private String model;
+  private List<VLViewComponentXML> subcomponents;
+  private String visibleIf;
+  private String rootView;
+  private String layoutProcessor;
+  private String criteria;
+  private String responsiveOrder;
+  private String masterColumn;
+  private String defaultButton;
 
   private VLAccessRulesXML accessRules;
   public Map<String, String> properties = new HashMap<>();
+
+  public VLViewComponentXML() {}
 
 
   public boolean isFiltered() {
@@ -137,7 +141,6 @@ public class VLViewComponentXML implements Cloneable, Serializable {
    * @return Optional
    */
   public Optional<Boolean> booleanPropertyValueOf(String name) {
-
     if (properties.get(name) == null) {
       return Optional.of(false);
     }
@@ -196,8 +199,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
     try {
       Integer val = Integer.valueOf(properties.get(name));
       return val;
-    }
-    catch (NumberFormatException e) {
+    } catch (NumberFormatException e) {
       return Integer.MIN_VALUE;
     }
   }
@@ -261,8 +263,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
 
   /**
-   * @param id
-   *            the id to set
+   * @param id the id to set
    */
   public void setId(String id) {
     this.id = id;
@@ -281,8 +282,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
 
   /**
-   * @param subcomponents
-   *            the subcomponents to set
+   * @param subcomponents the subcomponents to set
    */
   public void setSubcomponents(List<VLViewComponentXML> subcomponents) {
     this.subcomponents = subcomponents;
@@ -298,8 +298,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
 
   /**
-   * @param reference
-   *            the reference to set
+   * @param reference the reference to set
    */
   public void setReference(String reference) {
     this.reference = reference;
@@ -315,8 +314,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
 
   /**
-   * @param controller
-   *            the controller to set
+   * @param controller the controller to set
    */
   public void setController(String controller) {
     this.controller = controller;
@@ -332,8 +330,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
 
   /**
-   * @param processor
-   *            the processor to set
+   * @param processor the processor to set
    */
   public void setProcessor(String processor) {
     this.processor = processor;
@@ -344,13 +341,13 @@ public class VLViewComponentXML implements Cloneable, Serializable {
    * @return the separatorAfter
    */
   public Boolean isSeparatorAfter() {
-    return separatorAfter != null && ("1".equals(separatorAfter) || "true".equalsIgnoreCase(separatorAfter));
+    return separatorAfter != null
+        && ("1".equals(separatorAfter) || "true".equalsIgnoreCase(separatorAfter));
   }
 
 
   /**
-   * @param separatorAfter
-   *            the separatorAfter to set
+   * @param separatorAfter the separatorAfter to set
    */
   public void setSeparatorAfter(String separatorAfter) {
     this.separatorAfter = separatorAfter;
@@ -378,8 +375,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
   /**
    *
-   * @param visibleIf
-   *            the visibleIf to set
+   * @param visibleIf the visibleIf to set
    */
   public void setVisibleIf(String visibleIf) {
     this.visibleIf = visibleIf;
@@ -415,8 +411,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Set the criteria
    *
-   * @param criteria
-   *            the criteria to set
+   * @param criteria the criteria to set
    */
   public void setCriteria(String criteria) {
     this.criteria = criteria;
@@ -436,8 +431,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of model
    *
-   * @param model
-   *            the model to set
+   * @param model the model to set
    */
   public void setModel(String model) {
     this.model = model;
@@ -531,8 +525,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of properties
    *
-   * @param properties
-   *            the properties to set
+   * @param properties the properties to set
    */
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
@@ -552,8 +545,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of responsiveOrder
    *
-   * @param responsiveOrder
-   *            the responsiveOrder to set
+   * @param responsiveOrder the responsiveOrder to set
    */
   public void setResponsiveOrder(String responsiveOrder) {
     this.responsiveOrder = responsiveOrder;
@@ -573,8 +565,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of masterColumn
    *
-   * @param masterColumn
-   *            the masterColumn to set
+   * @param masterColumn the masterColumn to set
    */
   public void setMasterColumn(String masterColumn) {
     this.masterColumn = masterColumn;
@@ -605,8 +596,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of defaultButton
    *
-   * @param defaultButton
-   *            the defaultButton to set
+   * @param defaultButton the defaultButton to set
    */
   public void setDefaultButton(String defaultButton) {
     this.defaultButton = defaultButton;
@@ -626,8 +616,7 @@ public class VLViewComponentXML implements Cloneable, Serializable {
   /**
    * Setter of accessRules
    *
-   * @param accessRules
-   *            the accessRules to set
+   * @param accessRules the accessRules to set
    */
   public void setAccessRules(VLAccessRulesXML accessRules) {
     this.accessRules = accessRules;
@@ -654,14 +643,18 @@ public class VLViewComponentXML implements Cloneable, Serializable {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
     VLViewComponentXML other = (VLViewComponentXML) obj;
     if (id == null) {
-      if (other.id != null) return false;
-    }
-    else if (!id.equals(other.id)) return false;
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
     return true;
   }
 

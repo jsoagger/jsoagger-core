@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -24,10 +24,13 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 import java.io.Serializable;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewFilterXML implements Serializable {
 
   private static final long serialVersionUID = -6364354880489942068L;
@@ -37,6 +40,8 @@ public class VLViewFilterXML implements Serializable {
   private VLViewFilterAndOperatorXML and;
   private VLViewFilterOrOperatorXML or;
   private VLViewFilterNotOperatorXML not;
+
+  public VLViewFilterXML() {}
 
 
   public boolean andEmpty() {
@@ -81,8 +86,7 @@ public class VLViewFilterXML implements Serializable {
 
 
   /**
-   * @param name
-   *            the name to set
+   * @param name the name to set
    */
   public void setName(String name) {
     this.name = name;
@@ -98,8 +102,7 @@ public class VLViewFilterXML implements Serializable {
 
 
   /**
-   * @param param
-   *            the param to set
+   * @param param the param to set
    */
   public void setParam(VLViewFilterParamXML param) {
     this.param = param;
@@ -115,8 +118,7 @@ public class VLViewFilterXML implements Serializable {
 
 
   /**
-   * @param and
-   *            the and to set
+   * @param and the and to set
    */
   public void setAnd(VLViewFilterAndOperatorXML and) {
     this.and = and;
@@ -132,8 +134,7 @@ public class VLViewFilterXML implements Serializable {
 
 
   /**
-   * @param or
-   *            the or to set
+   * @param or the or to set
    */
   public void setOr(VLViewFilterOrOperatorXML or) {
     this.or = or;
@@ -149,8 +150,7 @@ public class VLViewFilterXML implements Serializable {
 
 
   /**
-   * @param not
-   *            the not to set
+   * @param not the not to set
    */
   public void setNot(VLViewFilterNotOperatorXML not) {
     this.not = not;

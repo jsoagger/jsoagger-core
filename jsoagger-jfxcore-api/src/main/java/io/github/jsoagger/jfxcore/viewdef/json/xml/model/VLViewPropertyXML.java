@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -24,10 +24,13 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 import java.io.Serializable;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewPropertyXML implements Serializable {
 
   private static final long serialVersionUID = -505427753426020974L;
@@ -35,6 +38,7 @@ public class VLViewPropertyXML implements Serializable {
   private String name;
   private String value;
 
+  public VLViewPropertyXML() {}
 
   /**
    * @return the name
@@ -45,8 +49,7 @@ public class VLViewPropertyXML implements Serializable {
 
 
   /**
-   * @param name
-   *            the name to set
+   * @param name the name to set
    */
   public void setName(String name) {
     this.name = name;
@@ -62,8 +65,7 @@ public class VLViewPropertyXML implements Serializable {
 
 
   /**
-   * @param value
-   *            the value to set
+   * @param value the value to set
    */
   public void setValue(String value) {
     this.value = value;

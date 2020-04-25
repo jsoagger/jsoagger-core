@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -20,15 +20,19 @@
 
 package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
  * @author Ramilafananana VONJISOA
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLAccessRulesXML {
 
   private VLAccessRulesResolverXML ruleResolver;
 
+  public VLAccessRulesXML() {}
 
   /**
    * @return
@@ -55,8 +59,7 @@ public class VLAccessRulesXML {
   /**
    * Setter of ruleResolver
    *
-   * @param ruleResolver
-   *            the ruleResolver to set
+   * @param ruleResolver the ruleResolver to set
    */
   public void setRuleResolver(VLAccessRulesResolverXML ruleResolver) {
     this.ruleResolver = ruleResolver;

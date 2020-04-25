@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -24,14 +24,18 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewFilterAndOperatorXML {
 
   private List<VLViewFilterXML> filters;
 
+  public VLViewFilterAndOperatorXML() {}
 
   public boolean hasFilters() {
     return filters != null && !filters.isEmpty();
@@ -47,8 +51,7 @@ public class VLViewFilterAndOperatorXML {
 
 
   /**
-   * @param filters
-   *            the filters to set
+   * @param filters the filters to set
    */
   public void setFilters(List<VLViewFilterXML> filters) {
     this.filters = filters;

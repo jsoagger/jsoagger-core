@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -25,14 +25,19 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewTableSettingsXML {
 
   private String id;
   private List<VLViewTableSettingXML> tableSettings = new ArrayList<>();
+
+  public VLViewTableSettingsXML() {}
 
   /**
    * @return the tableSettings

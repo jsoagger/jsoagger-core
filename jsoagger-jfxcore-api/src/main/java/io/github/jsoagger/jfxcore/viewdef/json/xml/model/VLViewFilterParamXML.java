@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -20,14 +20,19 @@
 
 package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewFilterParamXML {
 
   private String name;
   private String value;
+
+  public VLViewFilterParamXML() {}
 
   /**
    * @return the name

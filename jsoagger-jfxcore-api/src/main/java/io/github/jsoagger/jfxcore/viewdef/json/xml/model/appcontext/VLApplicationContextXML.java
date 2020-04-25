@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -24,15 +24,17 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model.appcontext;
 
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewComponentXML;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewContextFilterGroupXML;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewContextFilterXML;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewFilterXML;
 
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLApplicationContextXML {
 
   private List<VLImportXML> imports;
@@ -40,6 +42,8 @@ public class VLApplicationContextXML {
   private List<VLViewContextFilterXML> contextFilters;
   private List<VLViewFilterXML> filters;
   private List<VLViewComponentXML> components;
+
+  public VLApplicationContextXML() {}
 
 
   public List<VLViewComponentXML> getComponents() {
@@ -61,8 +65,7 @@ public class VLApplicationContextXML {
 
 
   /**
-   * @param imports
-   *            the imports to set
+   * @param imports the imports to set
    */
   public void setImports(List<VLImportXML> imports) {
     this.imports = imports;
@@ -78,8 +81,7 @@ public class VLApplicationContextXML {
 
 
   /**
-   * @param contextFilterGroups
-   *            the contextFilterGroups to set
+   * @param contextFilterGroups the contextFilterGroups to set
    */
   public void setContextFilterGroups(List<VLViewContextFilterGroupXML> contextFilterGroups) {
     this.contextFilterGroups = contextFilterGroups;
@@ -95,8 +97,7 @@ public class VLApplicationContextXML {
 
 
   /**
-   * @param contextFilters
-   *            the contextFilters to set
+   * @param contextFilters the contextFilters to set
    */
   public void setContextFilters(List<VLViewContextFilterXML> contextFilters) {
     this.contextFilters = contextFilters;
@@ -112,8 +113,7 @@ public class VLApplicationContextXML {
 
 
   /**
-   * @param filters
-   *            the filters to set
+   * @param filters the filters to set
    */
   public void setFilters(List<VLViewFilterXML> filters) {
     this.filters = filters;

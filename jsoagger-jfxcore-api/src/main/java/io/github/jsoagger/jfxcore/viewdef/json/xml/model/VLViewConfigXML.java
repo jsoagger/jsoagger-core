@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -29,15 +29,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
  * @author Ramilafananana VONJISOA
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLViewConfigXML implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
   private static final String CONTENT = "Content";
 
   private String id;
@@ -51,6 +53,7 @@ public class VLViewConfigXML implements Serializable {
   private VLViewRootMenuRowsXML menusRows;
   public Map<String, String> properties = new HashMap<>();
 
+  public VLViewConfigXML() {}
 
   /**
    * Get property as a string
@@ -64,8 +67,8 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * Returns the first {@link VLViewComponentXML} with given identifier in
-   * this view wizardConfiguration.
+   * Returns the first {@link VLViewComponentXML} with given identifier in this view
+   * wizardConfiguration.
    *
    * @param id
    * @return Optional
@@ -75,8 +78,8 @@ public class VLViewConfigXML implements Serializable {
       return Optional.empty();
     }
 
-    for(VLViewComponentXML comp: getComponents()) {
-      if(id.equalsIgnoreCase(comp.getId())) {
+    for (VLViewComponentXML comp : getComponents()) {
+      if (id.equalsIgnoreCase(comp.getId())) {
         return Optional.of(comp);
       }
     }
@@ -113,8 +116,7 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * @param id
-   *            the id to set
+   * @param id the id to set
    */
   public void setId(String id) {
     this.id = id;
@@ -130,8 +132,7 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * @param layoutManager
-   *            the layoutManager to set
+   * @param layoutManager the layoutManager to set
    */
   public void setLayoutManager(String layoutManager) {
     this.layoutManager = layoutManager;
@@ -147,8 +148,7 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * @param filtersGroup
-   *            the filtersGroup to set
+   * @param filtersGroup the filtersGroup to set
    */
   public void setFiltersGroup(VLViewContextFilterGroupXML filtersGroup) {
     this.filtersGroup = filtersGroup;
@@ -164,8 +164,7 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * @param components
-   *            the components to set
+   * @param components the components to set
    */
   public void setComponents(List<VLViewComponentXML> components) {
     this.components = components;
@@ -181,8 +180,7 @@ public class VLViewConfigXML implements Serializable {
 
 
   /**
-   * @param view
-   *            the view to set
+   * @param view the view to set
    */
   public void setView(String view) {
     this.view = view;
@@ -202,8 +200,7 @@ public class VLViewConfigXML implements Serializable {
   /**
    * Set the menus
    *
-   * @param menus
-   *            the menus to set
+   * @param menus the menus to set
    */
   public void setMenus(List<VLViewRootMenuGroupXML> menus) {
     this.menus = menus;
@@ -223,8 +220,7 @@ public class VLViewConfigXML implements Serializable {
   /**
    * Set the icon
    *
-   * @param icon
-   *            the icon to set
+   * @param icon the icon to set
    */
   public void setIcon(String icon) {
     this.icon = icon;
@@ -244,8 +240,7 @@ public class VLViewConfigXML implements Serializable {
   /**
    * Setter of menusRows
    *
-   * @param menusRows
-   *            the menusRows to set
+   * @param menusRows the menusRows to set
    */
   public void setMenusRows(VLViewRootMenuRowsXML menusRows) {
     this.menusRows = menusRows;
@@ -276,8 +271,7 @@ public class VLViewConfigXML implements Serializable {
   /**
    * Setter of properties
    *
-   * @param properties
-   *            the properties to set
+   * @param properties the properties to set
    */
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
@@ -308,7 +302,9 @@ public class VLViewConfigXML implements Serializable {
 
   @Override
   public String toString() {
-    return "VLViewConfigXML [id=" + id + ", view=" + view + ", icon=" + icon + ", layoutManager=" + layoutManager + ", filtersGroup=" + filtersGroup + ", viewFilters=" + viewFilters + ", components=" + components
-        + ", menus=" + menus + ", menusRows=" + menusRows + ", properties=" + properties + "]";
+    return "VLViewConfigXML [id=" + id + ", view=" + view + ", icon=" + icon + ", layoutManager="
+        + layoutManager + ", filtersGroup=" + filtersGroup + ", viewFilters=" + viewFilters
+        + ", components=" + components + ", menus=" + menus + ", menusRows=" + menusRows
+        + ", properties=" + properties + "]";
   }
 }

@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -35,8 +35,8 @@ import io.github.jsoagger.core.bridge.operation.IOperationResult;
  */
 public class MultipleResult extends OperationResult {
 
-  private static final long	serialVersionUID = -2152659463428448410L;
-  private List<OperationData>	data			 = new ArrayList<>();
+  private static final long serialVersionUID = -2152659463428448410L;
+  private List<OperationData> data = new ArrayList<>();
 
 
   /**
@@ -78,11 +78,9 @@ public class MultipleResult extends OperationResult {
       try {
         List dataList = (List) data;
         setData(dataList);
+      } catch (ClassCastException e) {
       }
-      catch (ClassCastException e) {
-      }
-    }
-    else {
+    } else {
       setData(new ArrayList<>());
     }
   }
@@ -91,8 +89,7 @@ public class MultipleResult extends OperationResult {
   /**
    * Setter of data
    *
-   * @param data
-   *            the data to set
+   * @param data the data to set
    */
   public void setData(List<OperationData> data) {
     this.data = data;
@@ -121,8 +118,8 @@ public class MultipleResult extends OperationResult {
    */
   public static class Builder {
 
-    private List<OperationData>	data;
-    public Map<String, Object>	meta;
+    private List<OperationData> data;
+    public Map<String, Object> meta;
 
 
     public Builder data(List<OperationData> data) {
@@ -174,7 +171,7 @@ public class MultipleResult extends OperationResult {
    * @return the data
    */
   public List<OperationData> getData() {
-    if(data == null) {
+    if (data == null) {
       data = new ArrayList<>();
     }
     return data;
@@ -187,8 +184,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public boolean hasElements() {
-    return (getMetaData() != null)
-        && (getMetaData().get(IOperationResult.totalElements) != null)
+    return (getMetaData() != null) && (getMetaData().get(IOperationResult.totalElements) != null)
         && (totaElements() > 0);
   }
 
@@ -200,8 +196,7 @@ public class MultipleResult extends OperationResult {
 
 
   public boolean hasPrevious() {
-    return (getMetaData() != null)
-        && (boolean) getMetaData().get(IOperationResult.hasPreviousPage);
+    return (getMetaData() != null) && (boolean) getMetaData().get(IOperationResult.hasPreviousPage);
   }
 
 
@@ -211,8 +206,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public int pageElements() {
-    if ((getMetaData() != null)
-        && (getMetaData().get(IOperationResult.pageElements) != null)) {
+    if ((getMetaData() != null) && (getMetaData().get(IOperationResult.pageElements) != null)) {
       return integerValueOf(String.valueOf(getMetaData().get(IOperationResult.pageElements)));
     }
     return -1;
@@ -225,8 +219,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public int totaElements() {
-    if ((getMetaData() != null)
-        && (getMetaData().get(IOperationResult.totalElements) != null)) {
+    if ((getMetaData() != null) && (getMetaData().get(IOperationResult.totalElements) != null)) {
       return integerValueOf(String.valueOf(getMetaData().get(IOperationResult.totalElements)));
     }
     return -1;
@@ -240,8 +233,7 @@ public class MultipleResult extends OperationResult {
   private Integer integerValueOf(String val) {
     try {
       return Double.valueOf(val).intValue();
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       return -1;
     }
   }
@@ -265,7 +257,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public int getCurrentPageIndex() {
-    return  integerValueOf(String.valueOf(getMetaData().get(IOperationResult.pageNumber)));
+    return integerValueOf(String.valueOf(getMetaData().get(IOperationResult.pageNumber)));
   }
 
 
@@ -285,8 +277,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public int lastPage() {
-    if ((getMetaData() != null)
-        && (getMetaData().get(IOperationResult.pageNumber) != null)) {
+    if ((getMetaData() != null) && (getMetaData().get(IOperationResult.pageNumber) != null)) {
       return integerValueOf(String.valueOf(getMetaData().get(IOperationResult.pageNumber)));
     }
     return -1;
@@ -305,8 +296,7 @@ public class MultipleResult extends OperationResult {
    * @return
    */
   public Object getPageSize() {
-    if ((getMetaData() != null)
-        && (getMetaData().get(IOperationResult.pageSize) != null)) {
+    if ((getMetaData() != null) && (getMetaData().get(IOperationResult.pageSize) != null)) {
       return integerValueOf(String.valueOf(getMetaData().get(IOperationResult.pageSize)));
     }
     return -1;

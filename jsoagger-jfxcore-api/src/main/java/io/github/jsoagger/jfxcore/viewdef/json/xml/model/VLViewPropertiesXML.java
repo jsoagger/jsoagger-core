@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -26,11 +26,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
  * @author Ramilafananana VONJISOA
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLViewPropertiesXML implements Serializable {
 
   private static final long serialVersionUID = 7096769958086704706L;
@@ -41,8 +44,7 @@ public class VLViewPropertiesXML implements Serializable {
   /**
    * Constructor
    */
-  public VLViewPropertiesXML() {
-  }
+  public VLViewPropertiesXML() {}
 
 
   /**
@@ -97,16 +99,15 @@ public class VLViewPropertiesXML implements Serializable {
   }
 
   public void addProperty(VLViewPropertyXML prop) {
-    if(this.properties  == null) {
-      this.properties  = new ArrayList<VLViewPropertyXML>();
+    if (this.properties == null) {
+      this.properties = new ArrayList<VLViewPropertyXML>();
     }
     this.properties.add(prop);
   }
 
 
   /**
-   * @param properties
-   *            the properties to set
+   * @param properties the properties to set
    */
   public void setProperties(List<VLViewPropertyXML> properties) {
     this.properties = properties;

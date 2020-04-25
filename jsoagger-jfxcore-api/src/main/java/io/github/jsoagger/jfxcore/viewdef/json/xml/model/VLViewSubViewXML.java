@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -20,10 +20,13 @@
 
 package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewSubViewXML {
 
   private String id;
@@ -32,6 +35,8 @@ public class VLViewSubViewXML {
   private String handler;
   private String parent;
 
+
+  public VLViewSubViewXML() {}
 
   /**
    * @return the id

@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.github.jsoagger</groupId>
@@ -19,6 +21,18 @@
 		<dependency>
 			<groupId>io.github.jsoagger</groupId>
 			<artifactId>jsoagger-core-bridge</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>13.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>13.0.1</version>
 		</dependency>
 
 		<!-- XML processing -->
@@ -112,9 +126,9 @@
 					<showDeprecation>true</showDeprecation>
 					<fork>true</fork>
 					<executable>${jdk}/bin/javac</executable>
-<!-- 					<compilerArgs> -->
-<!-- 						<arg>++add-modules=java.xml.bind,java.activation</arg> -->
-<!-- 					 </compilerArgs> -->
+					<!-- <compilerArgs> -->
+					<!-- <arg>++add-modules=java.xml.bind,java.activation</arg> -->
+					<!-- </compilerArgs> -->
 				</configuration>
 			</plugin>
 

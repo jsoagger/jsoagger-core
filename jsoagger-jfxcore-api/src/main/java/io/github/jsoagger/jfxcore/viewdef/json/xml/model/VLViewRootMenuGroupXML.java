@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -22,6 +22,7 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 
 
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.StringUtils;
 
 /**
@@ -29,14 +30,19 @@ import io.github.jsoagger.jfxcore.viewdef.json.xml.StringUtils;
  * @mailto yvonjisoa@nexitia.com
  * @date 2019
  */
+@GraalComponent
 public class VLViewRootMenuGroupXML {
 
-  private String						id;
-  private VLViewPropertiesXML	properties;
+  private String id;
+  private VLViewPropertiesXML properties;
+
+  public VLViewRootMenuGroupXML() {}
 
 
   public String getPropertyValue(String name) {
-    if (properties == null) { return null; }
+    if (properties == null) {
+      return null;
+    }
     return properties.getPropertyValueByName(name);
   }
 
@@ -48,8 +54,7 @@ public class VLViewRootMenuGroupXML {
         if (property.getName().equals(name)) {
           try {
             result = Integer.parseInt(property.getValue());
-          }
-          catch (final Exception e) {
+          } catch (final Exception e) {
 
           }
         }
@@ -66,11 +71,9 @@ public class VLViewRootMenuGroupXML {
       for (final VLViewPropertyXML property : properties.getProperties()) {
         if (property.getName().equals(name)) {
           try {
-            result = property.getValue() == null
-                && StringUtils.isBlank(property.getValue())
+            result = property.getValue() == null && StringUtils.isBlank(property.getValue())
                 && property.getValue().equalsIgnoreCase("true");
-          }
-          catch (final Exception e) {
+          } catch (final Exception e) {
 
           }
         }
@@ -88,11 +91,9 @@ public class VLViewRootMenuGroupXML {
         if (property.getName().equals(name)) {
 
           try {
-            result = property.getValue() != null
-                && StringUtils.isNotBlank(property.getValue())
+            result = property.getValue() != null && StringUtils.isNotBlank(property.getValue())
                 && property.getValue().equalsIgnoreCase("true");
-          }
-          catch (final Exception e) {
+          } catch (final Exception e) {
           }
         }
       }
@@ -122,7 +123,8 @@ public class VLViewRootMenuGroupXML {
   }
 
 
-  @Override public String toString() {
+  @Override
+  public String toString() {
     StringBuilder builder = new StringBuilder();
     builder.append("VLViewRootMenuGroupXML [");
     if (id != null) {

@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -25,10 +25,13 @@ package io.github.jsoagger.jfxcore.viewdef.json.xml.model;
 import java.io.Serializable;
 import java.util.List;
 
+import io.github.jsoagger.jfxcore.api.components.annotation.GraalComponent;
+
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
+@GraalComponent
 public class VLViewContextFilterGroupXML implements Serializable {
 
   private static final long serialVersionUID = -4986049280105503691L;
@@ -37,6 +40,8 @@ public class VLViewContextFilterGroupXML implements Serializable {
   private String ref;
   private List<VLViewContextFilterXML> filters;
 
+
+  public VLViewContextFilterGroupXML() {}
 
   /**
    * @return the id
@@ -47,8 +52,7 @@ public class VLViewContextFilterGroupXML implements Serializable {
 
 
   /**
-   * @param id
-   *            the id to set
+   * @param id the id to set
    */
   public void setId(String id) {
     this.id = id;
@@ -64,8 +68,7 @@ public class VLViewContextFilterGroupXML implements Serializable {
 
 
   /**
-   * @param ref
-   *            the ref to set
+   * @param ref the ref to set
    */
   public void setRef(String ref) {
     this.ref = ref;
@@ -81,8 +84,7 @@ public class VLViewContextFilterGroupXML implements Serializable {
 
 
   /**
-   * @param filters
-   *            the filters to set
+   * @param filters the filters to set
    */
   public void setFilters(List<VLViewContextFilterXML> filters) {
     this.filters = filters;
