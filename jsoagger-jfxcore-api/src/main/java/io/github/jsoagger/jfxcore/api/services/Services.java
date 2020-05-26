@@ -11,12 +11,12 @@ import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewContextFilterXML;
 import io.github.jsoagger.jfxcore.viewdef.json.xml.model.VLViewFilterXML;
 
 /**
- * @author Ramilafananana  VONJISOA
+ * @author Ramilafananana VONJISOA
  *
  */
 public class Services {
 
-  private  static Services services;
+  private static Services services;
 
   private ApplicationContextService appContextService;
   private ViewConfigurationService viewConfigurationService;
@@ -29,7 +29,7 @@ public class Services {
    * Constructor
    */
   private Services() {
-    if(services != null) {
+    if (services != null) {
       throw new IllegalArgumentException("Only one instance allowed");
     }
     services = this;
@@ -38,10 +38,11 @@ public class Services {
 
   /**
    * Get the unique instance ot that service
+   *
    * @return
    */
   public static Services instance() {
-    if(services == null) {
+    if (services == null) {
       services = new Services();
     }
 
@@ -88,24 +89,24 @@ public class Services {
 
   /**
    * Get bean with given context
+   *
    * @param identifier
    * @return
    */
   public static Object getBean(String identifier) {
-    if(StringUtils.isEmpty(identifier)) {
+    if (StringUtils.isEmpty(identifier)) {
       return null;
     }
 
-    if(instance().getAppContextService() == null) {
-      System.out.println("[ERROR] Application context service is null!!");
+    if (instance().getAppContextService() == null) {
+      // System.out.println("[ERROR] Application context service is null!!");
     }
 
     Object bean = instance().getAppContextService().getBean(identifier);
-    if(bean != null) {
+    if (bean != null) {
       return bean;
     }
 
-    System.out.println("[ERROR] Bean with name [" + identifier + "] not found.");
     throw new RuntimeException("Bean with name [" + identifier + "] not found.");
   }
 
