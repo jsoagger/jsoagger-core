@@ -3,7 +3,7 @@
 
 	<groupId>io.github.jsoagger</groupId>
 	<artifactId>jsoagger-core</artifactId>
-	<version>1.0.20-SNAPSHOT</version>
+	<version>1.0.21-SNAPSHOT</version>
 
 	<name>JSoagger core</name>
 	<description>JSoagger core and common libraries</description>
