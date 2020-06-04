@@ -13,7 +13,21 @@ pipeline {
     }
    
    stages {
+   
+   		stage ('Validate Current User') {
+			steps {
+				script {
+                      AUTHOR = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                }
+			}
+		}
+		
         stage ('Prepare') {
+        	when {
+	            branch 'master'
+	            not{ equals expected: "jenkins2", actual: "${AUTHOR}" }
+	        }
+	        
 			steps {
 				ansiColor('xterm') {
 					sh '''
@@ -21,15 +35,6 @@ pipeline {
 						echo "M2_HOME = ${M2_HOME}"
 						echo "JAVA_HOME = ${JAVA_HOME}"					
 					'''
-					
-					script {
-	                      AUTHOR = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
-	
-	                      if("jenkins2".equals(AUTHOR)){
-	                        currentBuild.result = 'ABORTED'
-	                        return
-	                      }
-	                }
 				}
 			}
 		}
