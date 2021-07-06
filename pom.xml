@@ -40,7 +40,7 @@
 		<apache.batik>1.9</apache.batik>
 		<commons.validator.version>1.6</commons.validator.version>
 		<annotation.discovery.version>1.7</annotation.discovery.version>
-		<common.beanutils.version>1.9.3</common.beanutils.version>
+		<common.beanutils.version>1.9.4</common.beanutils.version>
 		<saxon.dom.version>8.7</saxon.dom.version>
 		<commons.io.version>2.6</commons.io.version>
 		<commons.lang.version>3.8.1</commons.lang.version>
