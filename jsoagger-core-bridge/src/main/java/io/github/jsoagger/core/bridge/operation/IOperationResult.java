@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -21,157 +21,153 @@
 package io.github.jsoagger.core.bridge.operation;
 
 
-
-
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
 import io.github.jsoagger.core.bridge.result.MultipleResult;
 import io.github.jsoagger.core.bridge.result.OperationData;
 import io.github.jsoagger.core.bridge.result.OperationMessage;
-import io.github.jsoagger.core.bridge.result.OperationMessage.OperationMessageBuilder;
 import io.github.jsoagger.core.bridge.result.SingleResult;
 
-/**
- * @author Ramilafananana VONJISOA
- * @mailto yvonjisoa@nexitia.com
- * @date 2019
- */
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+
 public interface IOperationResult extends Serializable {
 
-  public final static String	pageElements	= "pageElements";
-  public final static String	pageNumber		= "pageNumber";
-  public final static String	page			= "page";
-  public final static String	hasNextPage		= "hasNextPage";
-  public final static String	totalPages		= "totalPages";
-  public final static String	pageSize		= "pageSize";
-  public final static String	hasPreviousPage	= "hasPreviousPage";
-  public final static String	totalElements	= "totalElements";
+    public final static String pageElements = "pageElements";
+    public final static String pageNumber = "pageNumber";
+    public final static String page = "page";
+    public final static String hasNextPage = "hasNextPage";
+    public final static String totalPages = "totalPages";
+    public final static String pageSize = "pageSize";
+    public final static String hasPreviousPage = "hasPreviousPage";
+    public final static String totalElements = "totalElements";
 
-  /**
-   * @return {@link IOperationResult}
-   */
-  public static IOperationResult emptyPaginatedData() {
-    IOperationResult result = new MultipleResult.Builder().addMeta("total-pages", 0).addMeta("total-elements", 2).addMeta("current-page", 0).addMeta("current-elements", 0).build();
-    return result;
-  }
+    public final static String ERROR = "error";
+    public final static String SUCCESS = "success";
+    public final static String ERREUR_INTERNE = "Erreur interne";
+    public final static String RUNTIME = "RUNTIME";
+    public final static String VOTRE_DEMANDE_N_A_PAS_PAS_PU_ÊTRE_TRAITÉE = "Votre demande n'a pas pas pu être traitée";
 
-  /**
-   * @return {@link IOperationResult}
-   */
-  public static IOperationResult emptyData() {
-    IOperationResult result = new SingleResult();
-    result.setData(new OperationData.Builder().build());
-    return result;
-  }
+    public static IOperationResult emptyPaginatedData() {
+        IOperationResult result = new MultipleResult.Builder()
+                .addMeta("total-pages", 0)
+                .addMeta("total-elements", 0)
+                .addMeta("current-page", 0)
+                .addMeta("current-elements", 0).build();
+        return result;
+    }
 
-
-  /**
-   * @return {@link IOperationResult}
-   */
-  public static IOperationResult emptyMultipleResult() {
-    IOperationResult result = new MultipleResult();
-    result.setData(new OperationData.Builder().build());
-    return result;
-  }
+    public static IOperationResult emptyBasicResult() {
+        IOperationResult result = new SingleResult();
+        result.setData(new OperationData.Builder().build());
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        return result;
+    }
 
 
-  /**
-   * @return
-   */
-  public static IOperationResult getGeneralSingleResultError() {
-    IOperationResult result = new SingleResult();
-    OperationMessage message = new OperationMessageBuilder().title("Network error").detail("You request can not be processed due to unknown error.Please contact your administrator.").build();
-    result.addMessage(message);
-    return result;
-  }
+    public static IOperationResult basicResultSuccess() {
+        IOperationResult result = new SingleResult();
+        result.setData(new OperationData.Builder().build());
+        result.setStatus(SUCCESS);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        return result;
+    }
+
+    public static IOperationResult basicResultError(String errorCode, String mainMessage, String messageDescription) {
+        IOperationResult result = new SingleResult();
+        result.setData(new OperationData.Builder().build());
+
+        result.setStatus(ERROR);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        result.setMessage(mainMessage);
+        result.setDescription(messageDescription);
+        result.setErrorCode(errorCode);
+        return result;
+    }
+
+    public static IOperationResult basicResultRuntimeError() {
+        IOperationResult result = new SingleResult();
+        result.setStatus(ERROR);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        result.setMessage(ERREUR_INTERNE);
+        result.setDescription(VOTRE_DEMANDE_N_A_PAS_PAS_PU_ÊTRE_TRAITÉE);
+        result.setErrorCode(RUNTIME);
+        return result;
+    }
 
 
-  /**
-   * @return
-   */
-  public static IOperationResult generalMultipleResutError() {
-    IOperationResult result = new MultipleResult();
-    OperationMessage message = new OperationMessageBuilder().title("Network error").detail("You request can not be processed due to unknown error.Please contact your administrator.").build();
-    result.addMessage(message);
-    return result;
-  }
+    public static IOperationResult listResultSuccess() {
+        IOperationResult result = new MultipleResult();
+        result.setData(new OperationData.Builder().build());
+        result.setStatus(SUCCESS);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        return result;
+    }
+
+    public static IOperationResult listResultError(String errorCode, String mainMessage, String messageDescription) {
+        IOperationResult result = new MultipleResult();
+        result.setData(new OperationData.Builder().build());
+
+        result.setStatus(ERROR);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        result.setMessage(mainMessage);
+        result.setDescription(messageDescription);
+        result.setErrorCode(errorCode);
+        return result;
+    }
+
+    public static IOperationResult listResultRuntimeError() {
+        IOperationResult result = new MultipleResult();
+        result.setStatus(ERROR);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        result.setMessage("Erreur interne");
+        result.setDescription(VOTRE_DEMANDE_N_A_PAS_PAS_PU_ÊTRE_TRAITÉE);
+        result.setErrorCode("RUNTIME");
+        return result;
+    }
 
 
-  /**
-   * @return
-   */
-  public static IOperationResult getNetworkError() {
-    IOperationResult result = new SingleResult();
-    OperationMessage message = new OperationMessageBuilder().title("Network error").detail("You request can not be processed due to network error.").build();
-    result.addMessage(message);
-    return result;
-  }
+    String getTimestamp() ;
+
+    void setTimestamp(final String timestamp) ;
+
+    void setMetaData(Map<String, Object> meta);
+
+    void addMetaData(String key, Object value);
+
+    Object rootData();
+
+    Map<String, Object> getMetaData();
+
+    boolean hasMessage();
+
+    default boolean hasBusinessError() {
+        return hasMessage() == Boolean.TRUE;
+    }
+
+    List<OperationMessage> getMessages();
+
+    void setMessages(List<OperationMessage> messages);
+
+    void setData(Object data);
+
+    void addMessage(OperationMessage message);
 
 
-  /**
-   * @param metaData
-   */
-  public void setMetaData(Map<String, Object> meta);
+    String getStatus();
 
+    void setStatus(final String status) ;
 
-  /**
-   * @param key
-   * @param value
-   */
-  public void addMetaData(String key, Object value);
+    String getErrorCode() ;
 
+    void setErrorCode(final String errorCode) ;
 
-  /**
-   * @return
-   */
-  public Object rootData();
+    String getMessage() ;
 
+    void setMessage(final String message) ;
 
-  /**
-   * @return
-   */
-  public Map<String, Object> getMetaData();
+    String getDescription() ;
 
-
-  /**
-   * Return true if there is at least one message to display.
-   *
-   * @return
-   */
-  public boolean hasMessage();
-
-
-  /**
-   *
-   * @return
-   */
-  public default boolean hasBusinessError() {
-    return hasMessage() == Boolean.TRUE;
-  }
-
-
-  /**
-   * @return
-   */
-  public List<OperationMessage> getMessages();
-
-
-  /**
-   * @return
-   */
-  public void setMessages(List<OperationMessage> messages);
-
-
-  /**
-   * @param data
-   */
-  public void setData(Object data);
-
-
-  /**
-   * @param message
-   */
-  public void addMessage(OperationMessage message);
+    void setDescription(final String description) ;
 }

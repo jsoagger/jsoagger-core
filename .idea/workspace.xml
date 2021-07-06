@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="81962259-3ca4-477f-96cc-6da1a6088983" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/operation/IOperationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/operation/IOperationResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/operation/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/operation/JsonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/result/MultipleResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/result/MultipleResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/result/OperationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/jsoagger-core-bridge/src/main/java/io/github/jsoagger/core/bridge/result/OperationResult.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1uw44kSPVf8xH8HkvBgK2e9xkfX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="81962259-3ca4-477f-96cc-6da1a6088983" name="Default Changelist" comment="" />
+      <created>1625563128914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625563128914</updated>
+      <workItem from="1625563131793" duration="1607000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="653" y="217" key="#com.intellij.ide.util.MemberChooser" timestamp="1625564588309">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="653" y="217" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1625564588309" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1625564569989">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1625564569989" />
+  </component>
+</project>

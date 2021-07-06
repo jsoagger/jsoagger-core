@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jsoagger-core-utils" />
+        <module name="jsoagger-core-ioc" />
+        <module name="jsoagger-core-bridge" />
+        <module name="jsoagger-jfxcore-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jsoagger-core" target="1.8" />
+      <module name="jsoagger-core-bridge" target="1.9" />
+      <module name="jsoagger-core-ioc" target="1.8" />
+      <module name="jsoagger-core-utils" target="1.8" />
+      <module name="jsoagger-jfxcore-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

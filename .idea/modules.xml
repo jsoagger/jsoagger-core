@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jsoagger-core.iml" filepath="$PROJECT_DIR$/jsoagger-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsoagger-core-bridge/jsoagger-core-bridge.iml" filepath="$PROJECT_DIR$/jsoagger-core-bridge/jsoagger-core-bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsoagger-core-ioc/jsoagger-core-ioc.iml" filepath="$PROJECT_DIR$/jsoagger-core-ioc/jsoagger-core-ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsoagger-core-utils/jsoagger-core-utils.iml" filepath="$PROJECT_DIR$/jsoagger-core-utils/jsoagger-core-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsoagger-jfxcore-api/jsoagger-jfxcore-api.iml" filepath="$PROJECT_DIR$/jsoagger-jfxcore-api/jsoagger-jfxcore-api.iml" />
+    </modules>
+  </component>
+</project>

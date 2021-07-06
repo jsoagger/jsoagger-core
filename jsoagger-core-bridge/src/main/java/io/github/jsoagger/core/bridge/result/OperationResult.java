@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -21,6 +21,7 @@
 package io.github.jsoagger.core.bridge.result;
 
 
+import io.github.jsoagger.core.bridge.operation.IOperationResult;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,163 +29,158 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.github.jsoagger.core.bridge.operation.IOperationResult;
-
-/**
- * @author Ramilafananana VONJISOA
- * @mailto yvonjisoa@nexitia.com
- * @date 2019
- */
 public abstract class OperationResult implements Serializable, IOperationResult {
 
-  private static final long	  serialVersionUID = -2152659463428448410L;
+    private static final long serialVersionUID = -2152659463428448410L;
 
-  protected Map<String, Object> links			   = new HashMap<>();
-  protected Map<String, Object> metaData			   = new HashMap<>();
+    protected Map<String, Object> links = new HashMap<>();
+    protected Map<String, Object> metaData = new HashMap<>();
 
-  // error messages only
-  protected List<OperationMessage> messages = new ArrayList<>();
+    // error messages only
+    protected List<OperationMessage> messages = new ArrayList<>();
 
+    private String status;
+    private String timestamp;
+    private String errorCode;
+    private String message;
+    private String description;
 
-  /**
-   * Constructor
-   */
-  public OperationResult() {
-    super();
-  }
-
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Map<String, Object> getMetaData() {
-    return metaData;
-  }
-
-
-  /**
-   * @param key
-   * @param value
-   */
-  @Override
-  public void addMetaData(String key, Object value) {
-    if (metaData == null) {
-      metaData = new HashMap<>();
+    public OperationResult() {
+        super();
     }
-    metaData.put(key, value);
-  }
 
 
-  /**
-   * @param message
-   */
-  @Override
-  public void addMessage(OperationMessage message) {
-    if(messages == null) messages = new ArrayList<>();
-    messages.add(message);
-  }
-
-
-  /**
-   * Getter of links
-   *
-   * @return the links
-   */
-  public Map<String, Object> getLinks() {
-    return links;
-  }
-
-
-  /**
-   * Setter of links
-   *
-   * @param links
-   *            the links to set
-   */
-  public void setLinks(Map<String, Object> links) {
-    this.links = links;
-  }
-
-
-  /**
-   * Setter of metaData
-   *
-   * @param metaData
-   *            the metaData to set
-   */
-  @Override
-  public void setMetaData(Map<String, Object> meta) {
-    this.metaData = meta;
-  }
-
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override
-  public List<OperationMessage> getMessages() {
-    if (!hasMessage()) {
-      return new ArrayList<>();
+    @Override
+    public String getTimestamp() {
+        return timestamp;
     }
-    return messages;
-  }
 
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override
-  public void setMessages(List<OperationMessage> messages) {
-    if(messages != null) {
-      this.messages.clear();
-      this.messages.addAll(messages);
+    @Override
+    public void setTimestamp(final String timestamp) {
+        this.timestamp = timestamp;
     }
-  }
 
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override
-  public boolean hasMessage() {
-    return (messages != null) && (messages.size() > 0);
-  }
-
-  /**
-   * Starts with _ to avoid json serialisation.
-   *
-   * @return
-   */
-  public String _getFirstErrorMessage() {
-    if(getMessages().size() > 0) {
-      OperationMessage msg = getMessages().get(0);
-      return msg.getDetail();
+    @Override
+    public String getStatus() {
+        return status;
     }
-    return null;
-  }
 
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override
-  public boolean hasBusinessError() {
-    return IOperationResult.super.hasBusinessError();
-  }
-
-  /**
-   * Get value to integer from metadata.
-   *
-   * @param key
-   * @return
-   */
-  public int getMetaDataIntValue(String key) {
-    try {
-      int t = Double.valueOf(String.valueOf(getMetaData().get(key))).intValue();
-      return t;
-    }catch (Exception e) {
-      return -1;
+    @Override
+    public void setStatus(final String status) {
+        this.status = status;
     }
-  }
+
+    @Override
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    @Override
+    public void setErrorCode(final String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public void setMessage(final String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    @Override
+    public Map<String, Object> getMetaData() {
+        return metaData;
+    }
+
+
+    @Override
+    public void addMetaData(String key, Object value) {
+        if (metaData == null) {
+            metaData = new HashMap<>();
+        }
+        metaData.put(key, value);
+    }
+
+
+    @Override
+    public void addMessage(OperationMessage message) {
+        if (messages == null) messages = new ArrayList<>();
+        messages.add(message);
+    }
+
+
+    public Map<String, Object> getLinks() {
+        return links;
+    }
+
+
+    public void setLinks(Map<String, Object> links) {
+        this.links = links;
+    }
+
+
+    @Override
+    public void setMetaData(Map<String, Object> meta) {
+        this.metaData = meta;
+    }
+
+
+    @Override
+    public List<OperationMessage> getMessages() {
+        if (!hasMessage()) {
+            return new ArrayList<>();
+        }
+        return messages;
+    }
+
+
+    @Override
+    public void setMessages(List<OperationMessage> messages) {
+        if (messages != null) {
+            this.messages.clear();
+            this.messages.addAll(messages);
+        }
+    }
+
+
+    @Override
+    public boolean hasMessage() {
+        return (messages != null) && (messages.size() > 0);
+    }
+
+    public String _getFirstErrorMessage() {
+        if (getMessages().size() > 0) {
+            OperationMessage msg = getMessages().get(0);
+            return msg.getDetail();
+        }
+        return null;
+    }
+
+
+    @Override
+    public boolean hasBusinessError() {
+        return IOperationResult.super.hasBusinessError();
+    }
+
+    public int getMetaDataIntValue(String key) {
+        try {
+            int t = Double.valueOf(String.valueOf(getMetaData().get(key))).intValue();
+            return t;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 }
