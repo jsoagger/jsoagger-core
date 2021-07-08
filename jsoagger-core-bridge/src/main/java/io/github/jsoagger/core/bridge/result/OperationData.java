@@ -21,22 +21,11 @@
 package io.github.jsoagger.core.bridge.result;
 
 
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-
-/**
- * { "data": { "type": "articles", "id": "1", "attributes": { // ... this
- * article's attributes }}
- * <p>
- *
- * @author Ramilafananana VONJISOA
- * @mailto yvonjisoa@nexitia.com
- * @date 2019
- */
 public class OperationData implements Serializable, Cloneable {
 
   private static final long serialVersionUID = -4887771763914349926L;
@@ -54,103 +43,50 @@ public class OperationData implements Serializable, Cloneable {
   protected OperationData nestedAttributes = null;
 
 
-  /**
-   * Constructor
-   */
   public OperationData() {
     uuid = UUID.randomUUID().toString();
   }
 
 
-  /**
-   * Getter of metaData
-   *
-   * @return the metaData
-   */
   public Map<String, Object> getMeta() {
     return meta;
   }
 
 
-  /**
-   * Setter of metaData
-   *
-   * @param metaData
-   *            the metaData to set
-   */
   public void setMeta(Map<String, Object> meta) {
     this.meta = meta;
   }
 
 
-  /**
-   * Getter of attributes
-   *
-   * @return the attributes
-   */
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
 
-  /**
-   * Setter of attributes
-   *
-   * @param attributes
-   *            the attributes to set
-   */
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  /**
-   * Getter of links
-   *
-   * @return the links
-   */
   public Map<String, Object> getLinks() {
     return links;
   }
 
 
-  /**
-   * Setter of links
-   *
-   * @param links
-   *            the links to set
-   */
   public void setLinks(Map<String, Object> links) {
     this.links = links;
   }
 
 
-  /**
-   * Getter of relationships
-   *
-   * @return the relationships
-   */
   public Map<String, Object> getRelationships() {
     return relationships;
   }
 
 
-  /**
-   * Setter of relationships
-   *
-   * @param relationships
-   *            the relationships to set
-   */
-
   public void setRelationships(Map<String, Object> relationships) {
     this.relationships = relationships;
   }
 
-  /**
-   * @author Ramilafananana VONJISOA
-   * @mailto yvonjisoa@nexitia.com
-   * @date 2019
-   */
   public static class Builder {
 
     private String					type;
@@ -236,11 +172,6 @@ public class OperationData implements Serializable, Cloneable {
   }
 
 
-  /**
-   * Constructor
-   *
-   * @param builder
-   */
   private OperationData(Builder builder) {
     if (!builder.meta.isEmpty()) {
       meta = builder.meta;
@@ -272,85 +203,41 @@ public class OperationData implements Serializable, Cloneable {
   }
 
 
-  /**
-   * Getter of container
-   *
-   * @return the container
-   */
   public Map<String, Object> getContainer() {
     return container;
   }
 
 
-  /**
-   * Setter of container
-   *
-   * @param container
-   *            the container to set
-   */
   public void setContainer(Map<String, Object> container) {
     this.container = container;
   }
 
 
-  /**
-   * Getter of businessType
-   *
-   * @return the businessType
-   */
   public Map<String, Object> getBusinessType() {
     return businessType;
   }
 
 
-  /**
-   * Setter of businessType
-   *
-   * @param businessType
-   *            the businessType to set
-   */
   public void setBusinessType(Map<String, Object> businessType) {
     this.businessType = businessType;
   }
 
 
-  /**
-   * Getter of masterAttributes
-   *
-   * @return the masterAttributes
-   */
   public Map<String, Object> getMasterAttributes() {
     return masterAttributes;
   }
 
 
-  /**
-   * Setter of masterAttributes
-   *
-   * @param masterAttributes
-   *            the masterAttributes to set
-   */
   public void setMasterAttributes(Map<String, Object> masterAttributes) {
     this.masterAttributes = masterAttributes;
   }
 
 
-  /**
-   * Getter of nestedAttributes
-   *
-   * @return the nestedAttributes
-   */
   public OperationData getNestedAttributes() {
     return nestedAttributes;
   }
 
 
-  /**
-   * Setter of nestedAttributes
-   *
-   * @param nestedAttributes
-   *            the nestedAttributes to set
-   */
   public void setNestedAttributes(OperationData nestedAttributes) {
     this.nestedAttributes = nestedAttributes;
   }
@@ -368,11 +255,6 @@ public class OperationData implements Serializable, Cloneable {
   }
 
 
-  /**
-   * Two object full id are attribute are equals.
-   *
-   * @return
-   */
   public boolean fullIdEquals(OperationData data) {
     String fullId = (String) getAttributes().get("id");
     String fullId2 = (String) data.getAttributes().get("id");
@@ -381,11 +263,6 @@ public class OperationData implements Serializable, Cloneable {
     return fullId.equalsIgnoreCase(fullId2);
   }
 
-  /**
-   * Two object master full id are attribute are equals.
-   *
-   * @return
-   */
   public boolean masterFullIdEquals(OperationData data) {
     String fullId = (String) getMasterAttributes().get("id");
     String fullId2 = (String) data.getMasterAttributes().get("id");

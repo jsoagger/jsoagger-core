@@ -13,6 +13,9 @@
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.12" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.23.1-GA" level="project" />
     <orderEntry type="module" module-name="jsoagger-core-bridge" scope="PROVIDED" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.8" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
   </component>
 </module>

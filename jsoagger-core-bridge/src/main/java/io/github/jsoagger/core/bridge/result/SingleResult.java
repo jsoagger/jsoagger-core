@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -20,115 +20,83 @@
 
 package io.github.jsoagger.core.bridge.result;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Ramilafananana VONJISOA
- * @mailto yvonjisoa@nexitia.com
- * @date 2019
- */
 public class SingleResult extends OperationResult {
 
-  private static final long serialVersionUID = -2152659463428448410L;
+    private static final long serialVersionUID = -2152659463428448410L;
 
-  protected OperationData data = new OperationData();
+    protected OperationData data = new OperationData();
 
-
-  /**
-   * Constructor
-   */
-  public SingleResult() {
-  }
-
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override public void setData(Object data) {
-    this.data = (OperationData) data;
-  }
-
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override public Object rootData() {
-    return data;
-  }
-
-
-  /**
-   * @{inheritedDoc}
-   */
-  @Override public String toString() {
-    StringBuilder builder = new StringBuilder();
-    builder.append("SingleResult [");
-    if (data != null) {
-      builder.append("data=");
-      builder.append(data);
+    public SingleResult() {
     }
-    builder.append("]");
-    return builder.toString();
-  }
 
-  /**
-   * @author Ramilafananana VONJISOA
-   * @mailto yvonjisoa@nexitia.com
-   * @date 2019
-   */
-  public static class Builder {
-
-    private OperationData		data;
-    private Map<String, Object>	meta	= null;
-
-
-    /**
-     * @param data
-     * @return
-     */
-    public Builder data(OperationData data) {
-      this.data = data;
-      return this;
+    @Override
+    public void setData(Object data) {
+        this.data = (OperationData) data;
     }
 
 
-    public Builder addMessage(OperationMessage message) {
-      addMessage(message);
-      return this;
+    @Override
+    public Object rootData() {
+        return data;
     }
 
 
-    public SingleResult build() {
-      return new SingleResult(this);
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("SingleResult [");
+        if (data != null) {
+            builder.append("data=");
+            builder.append(data);
+        }
+        builder.append("]");
+        return builder.toString();
+    }
+
+    public static class Builder {
+
+        private OperationData data;
+        private Map<String, Object> meta = null;
+
+
+        public Builder data(OperationData data) {
+            this.data = data;
+            return this;
+        }
+
+
+        public Builder addMessage(OperationMessage message) {
+            addMessage(message);
+            return this;
+        }
+
+
+        public SingleResult build() {
+            return new SingleResult(this);
+        }
+
+
+        public Builder addMeta(String key, Object value) {
+            if (this.meta == null) {
+                this.meta = new HashMap<>();
+            }
+
+            this.meta.put(key, value);
+            return this;
+        }
     }
 
 
-    public Builder addMeta(String key, Object value) {
-      if (this.meta == null) {
-        this.meta = new HashMap<>();
-      }
-
-      this.meta.put(key, value);
-      return this;
+    private SingleResult(Builder builder) {
+        this.data = builder.data;
+        this.metaData = builder.meta;
     }
-  }
 
 
-  private SingleResult(Builder builder) {
-    this.data = builder.data;
-    this.metaData = builder.meta;
-  }
-
-
-  /**
-   * Getter of data
-   *
-   * @return the data
-   */
-  public OperationData getData() {
-    return data;
-  }
+    public OperationData getData() {
+        return data;
+    }
 }

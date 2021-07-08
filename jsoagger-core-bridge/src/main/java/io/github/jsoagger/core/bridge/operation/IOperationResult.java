@@ -66,7 +66,7 @@ public interface IOperationResult extends Serializable {
     }
 
 
-    public static IOperationResult basicResultSuccess() {
+    public static IOperationResult basicSuccess() {
         IOperationResult result = new SingleResult();
         result.setData(new OperationData.Builder().build());
         result.setStatus(SUCCESS);
@@ -74,7 +74,7 @@ public interface IOperationResult extends Serializable {
         return result;
     }
 
-    public static IOperationResult basicResultError(String errorCode, String mainMessage, String messageDescription) {
+    public static IOperationResult basicError(String errorCode, String mainMessage, String messageDescription) {
         IOperationResult result = new SingleResult();
         result.setData(new OperationData.Builder().build());
 
@@ -86,7 +86,19 @@ public interface IOperationResult extends Serializable {
         return result;
     }
 
-    public static IOperationResult basicResultRuntimeError() {
+    public static IOperationResult basicError(String errorCode, String mainMessage) {
+        IOperationResult result = new SingleResult();
+        result.setData(new OperationData.Builder().build());
+
+        result.setStatus(ERROR);
+        result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        result.setMessage(mainMessage);
+        result.setErrorCode(errorCode);
+        return result;
+    }
+
+
+    public static IOperationResult basicRuntimeError() {
         IOperationResult result = new SingleResult();
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -97,7 +109,7 @@ public interface IOperationResult extends Serializable {
     }
 
 
-    public static IOperationResult listResultSuccess() {
+    public static IOperationResult listSuccess() {
         IOperationResult result = new MultipleResult();
         result.setData(new OperationData.Builder().build());
         result.setStatus(SUCCESS);
@@ -105,7 +117,7 @@ public interface IOperationResult extends Serializable {
         return result;
     }
 
-    public static IOperationResult listResultError(String errorCode, String mainMessage, String messageDescription) {
+    public static IOperationResult listError(String errorCode, String mainMessage, String messageDescription) {
         IOperationResult result = new MultipleResult();
         result.setData(new OperationData.Builder().build());
 
@@ -117,7 +129,7 @@ public interface IOperationResult extends Serializable {
         return result;
     }
 
-    public static IOperationResult listResultRuntimeError() {
+    public static IOperationResult listRuntimeError() {
         IOperationResult result = new MultipleResult();
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

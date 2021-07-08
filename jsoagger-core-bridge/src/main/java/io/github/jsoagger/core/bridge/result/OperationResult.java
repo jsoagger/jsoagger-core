@@ -22,7 +22,6 @@ package io.github.jsoagger.core.bridge.result;
 
 
 import io.github.jsoagger.core.bridge.operation.IOperationResult;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,14 +40,17 @@ public abstract class OperationResult implements Serializable, IOperationResult 
 
     private String status;
     private String timestamp;
+
+
     private String errorCode;
+
     private String message;
+
     private String description;
 
     public OperationResult() {
         super();
     }
-
 
     @Override
     public String getTimestamp() {

@@ -1,6 +1,6 @@
 /*-
  * ========================LICENSE_START=================================
- * JSoagger 
+ * JSoagger
  * %%
  * Copyright (C) 2019 JSOAGGER
  * %%
@@ -22,145 +22,94 @@
 package io.github.jsoagger.core.utils;
 
 
-import java.util.Base64;
+import io.github.jsoagger.core.utils.exception.RestException;
 
-import io.github.jsoagger.core.utils.exception.VLException;
-import io.github.jsoagger.core.utils.exception.VLInvalidObjectIdentiferException;
+import java.util.Base64;
 
 public class ObjectIdentifierUtils {
 
-  /**
-   * Constructor of ObjectIdentifierUtils.java
-   */
-  private ObjectIdentifierUtils() {
-    // utility not public constructor
-  }
-
-  /**
-   * 
-   * @param base64Id
-   * @return
-   */
-  public static Long getBase64Id(String base64Id) {
-    String id = decode(base64Id);
-    return getId(id);
-  }
-
-  /**
-   * Encode the full identifier to base64.
-   *
-   * @param fullIdentifier
-   * @return
-   */
-  public static String encode(String fullIdentifier) {
-    String fullId = Base64.getEncoder().encodeToString(fullIdentifier.getBytes());
-    return fullId;
-  }
-
-  /**
-   * Encode the full identifier to base64.
-   *
-   * @param fullIdentifier
-   * @return
-   */
-  public static String decode(String fullIdentifier) {
-    String fullId = new String(Base64.getDecoder().decode(fullIdentifier.getBytes()));
-    return fullId;
-  }
-
-
-  /**
-   * Extract the id from the full identifier
-   *
-   * @param identifier
-   * @return
-   */
-  public static Long getId(String identifier) {
-    try {
-      return Long.valueOf(identifier.split(":")[0]);
-    }
-    catch (Exception e) {
+    private ObjectIdentifierUtils() {
+        // utility not public constructor
     }
 
-    return -1L;
-  }
-
-
-  /**
-   * Extract the domain of the given object identifier
-   *
-   * @param identifier
-   *            The identifier
-   * @return The class
-   */
-  public static Class getDomainClassOf(String identifier) {
-    try {
-      String className = identifier.split(":")[1];
-      return Class.forName(className);
-    }
-    catch (Exception e) {
-      throw new VLInvalidObjectIdentiferException("Invalid Identifier : " + identifier);
-    }
-  }
-
-
-  /**
-   * Check if the given object identifier is valid.
-   *
-   * @param fullIdentifier
-   *            The identifer to valid
-   * @return True or false
-   */
-  public static boolean isValid(String fullIdentifier) {
-    if (fullIdentifier == null) {
-      return false;
+    public static Long getBase64Id(String base64Id) {
+        String id = decode(base64Id);
+        return getId(id);
     }
 
-    if (fullIdentifier.split(":").length != 2) {
-      return false;
+    public static String encode(String fullIdentifier) {
+        String fullId = Base64.getEncoder().encodeToString(fullIdentifier.getBytes());
+        return fullId;
     }
 
-    try {
-      String className = fullIdentifier.split(":")[1];
-      Class.forName(className);
-    }
-    catch (ClassNotFoundException e) {
-      e.printStackTrace();
-      return false;
+    public static String decode(String fullIdentifier) {
+        String fullId = new String(Base64.getDecoder().decode(fullIdentifier.getBytes()));
+        return fullId;
     }
 
-    try {
-      Long.valueOf(fullIdentifier.split(":")[0]);
-    }
-    catch (NumberFormatException e) {
-      e.printStackTrace();
-      return false;
-    }
 
-    return true;
-  }
+    public static Long getId(String identifier) {
+        try {
+            return Long.valueOf(identifier.split(":")[0]);
+        } catch (Exception e) {
+        }
 
-
-  public static Long getVersion(String fullIdentifier) {
-    if (fullIdentifier == null) {
-      return 0L;
+        return -1L;
     }
 
-    if (fullIdentifier.split(":").length != 3) {
-      return 0L;
+
+    public static Class getDomainClassOf(String identifier) {
+        try {
+            String className = identifier.split(":")[1];
+            return Class.forName(className);
+        } catch (Exception e) {
+            throw new RestException("R001");
+        }
     }
 
-    return Long.valueOf(fullIdentifier.split(":")[2]);
-  }
+
+    public static boolean isValid(String fullIdentifier) {
+        if (fullIdentifier == null) {
+            return false;
+        }
+
+        if (fullIdentifier.split(":").length != 2) {
+            return false;
+        }
+
+        try {
+            String className = fullIdentifier.split(":")[1];
+            Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        try {
+            Long.valueOf(fullIdentifier.split(":")[0]);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
 
 
-  /**
-   * Generates a partial identifier of an entity.
-   *
-   * @param clazz
-   * @return ":" + class canonical name
-   */
-  public static String partialId(Class clazz) {
-    return ":" + clazz.getCanonicalName();
-  }
+    public static Long getVersion(String fullIdentifier) {
+        if (fullIdentifier == null) {
+            return 0L;
+        }
+
+        if (fullIdentifier.split(":").length != 3) {
+            return 0L;
+        }
+
+        return Long.valueOf(fullIdentifier.split(":")[2]);
+    }
+
+
+    public static String partialId(Class clazz) {
+        return ":" + clazz.getCanonicalName();
+    }
 }
