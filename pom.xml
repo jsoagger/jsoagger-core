@@ -3,7 +3,7 @@
 
 	<groupId>io.github.jsoagger</groupId>
 	<artifactId>jsoagger-core</artifactId>
-	<version>1.0.25-SNAPSHOT</version>
+	<version>1.0.25</version>
 
 	<name>JSoagger core</name>
 	<description>JSoagger core and common libraries</description>
@@ -685,7 +685,7 @@
 		<connection>scm:git:https://github.com/jsoagger/jsoagger-core.git</connection>
 		<developerConnection>scm:git:https://github.com/jsoagger/jsoagger-core.git</developerConnection>
 		<url>https://github.com/jsoagger</url>
-		<tag>HEAD</tag>
+		<tag>1.0.25</tag>
 	</scm>
 
 	<repositories>
