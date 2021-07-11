@@ -37,16 +37,11 @@ public abstract class OperationResult implements Serializable, IOperationResult 
 
     // error messages only
     protected List<OperationMessage> messages = new ArrayList<>();
-
     private String status;
     private String timestamp;
-
-
+    private String errorFamily;
     private String errorCode;
-
     private String message;
-
-    private String description;
 
     public OperationResult() {
         super();
@@ -90,16 +85,6 @@ public abstract class OperationResult implements Serializable, IOperationResult 
     @Override
     public void setMessage(final String message) {
         this.message = message;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public void setDescription(final String description) {
-        this.description = description;
     }
 
     @Override
@@ -184,5 +169,13 @@ public abstract class OperationResult implements Serializable, IOperationResult 
         } catch (Exception e) {
             return -1;
         }
+    }
+
+    public String getErrorFamily() {
+        return errorFamily;
+    }
+
+    public void setErrorFamily(final String errorFamily) {
+        this.errorFamily = errorFamily;
     }
 }

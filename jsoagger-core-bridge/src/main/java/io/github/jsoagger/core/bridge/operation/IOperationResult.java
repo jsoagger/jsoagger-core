@@ -74,36 +74,33 @@ public interface IOperationResult extends Serializable {
         return result;
     }
 
-    public static IOperationResult basicError(String errorCode, String mainMessage, String messageDescription) {
+    public static IOperationResult basicError(String messageFamily, String errorCode, String message) {
         IOperationResult result = new SingleResult();
         result.setData(new OperationData.Builder().build());
-
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        result.setMessage(mainMessage);
-        result.setDescription(messageDescription);
+        result.setMessage(message);
+        result.setErrorFamily(messageFamily);
         result.setErrorCode(errorCode);
         return result;
     }
 
-    public static IOperationResult basicError(String errorCode, String mainMessage) {
+    public static IOperationResult basicError(String messageFamily, String message) {
         IOperationResult result = new SingleResult();
         result.setData(new OperationData.Builder().build());
-
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        result.setMessage(mainMessage);
-        result.setErrorCode(errorCode);
+        result.setMessage(message);
+        result.setErrorFamily(messageFamily);
         return result;
     }
-
 
     public static IOperationResult basicRuntimeError() {
         IOperationResult result = new SingleResult();
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         result.setMessage(ERREUR_INTERNE);
-        result.setDescription(VOTRE_DEMANDE_N_A_PAS_PAS_PU_ÊTRE_TRAITÉE);
+        result.setErrorFamily(RUNTIME);
         result.setErrorCode(RUNTIME);
         return result;
     }
@@ -120,11 +117,10 @@ public interface IOperationResult extends Serializable {
     public static IOperationResult listError(String errorCode, String mainMessage, String messageDescription) {
         IOperationResult result = new MultipleResult();
         result.setData(new OperationData.Builder().build());
-
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         result.setMessage(mainMessage);
-        result.setDescription(messageDescription);
+        result.setErrorFamily(RUNTIME);
         result.setErrorCode(errorCode);
         return result;
     }
@@ -134,7 +130,7 @@ public interface IOperationResult extends Serializable {
         result.setStatus(ERROR);
         result.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         result.setMessage("Erreur interne");
-        result.setDescription(VOTRE_DEMANDE_N_A_PAS_PAS_PU_ÊTRE_TRAITÉE);
+        result.setErrorFamily(RUNTIME);
         result.setErrorCode("RUNTIME");
         return result;
     }
@@ -166,7 +162,6 @@ public interface IOperationResult extends Serializable {
 
     void addMessage(OperationMessage message);
 
-
     String getStatus();
 
     void setStatus(final String status) ;
@@ -179,7 +174,7 @@ public interface IOperationResult extends Serializable {
 
     void setMessage(final String message) ;
 
-    String getDescription() ;
+    String getErrorFamily() ;
 
-    void setDescription(final String description) ;
+    void setErrorFamily(final String errorFamily) ;
 }
